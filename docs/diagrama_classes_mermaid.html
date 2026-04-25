@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diagrama de Classes do Projeto</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6f4ee;
+        --card: #fffdf8;
+        --text: #1f2937;
+        --muted: #6b7280;
+        --border: #d6d3d1;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        background:
+          radial-gradient(circle at top left, #f3ead8, transparent 28%),
+          radial-gradient(circle at bottom right, #e7efe8, transparent 22%),
+          var(--bg);
+        color: var(--text);
+      }
+
+      main {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 32px 20px 48px;
+      }
+
+      h1,
+      h2 {
+        margin: 0 0 12px;
+      }
+
+      p {
+        margin: 0 0 24px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      section {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 20px;
+        margin-bottom: 24px;
+        overflow: auto;
+        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.05);
+      }
+
+      .mermaid {
+        min-width: 1000px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Diagrama de Classes do Projeto</h1>
+      <p>
+        Visualizacao local dos diagramas Mermaid do projeto. Se o preview do
+        Markdown falhar, abra este arquivo no navegador.
+      </p>
+
+      <section>
+        <h2>Modelo de dominio</h2>
+        <pre class="mermaid">
+classDiagram
+direction LR
+
+class User {
+  +id: String
+  +name: String
+  +email: String
+  +passwordHash: String
+  +role: UserRole
+  +active: Boolean
+  +createdAt: DateTime
+  +updatedAt: DateTime
+}
+
+class Client {
+  +id: String
+  +name: String
+  +email: String
+  +phone: String
+  +notes: String
+  +active: Boolean
+  +userId: String
+  +createdAt: DateTime
+  +updatedAt: DateTime
+}
+
+class Service {
+  +id: String
+  +name: String
+  +description: String
+  +durationMinutes: Int
+  +price: Decimal
+  +active: Boolean
+  +createdAt: DateTime
+  +updatedAt: DateTime
+}
+
+class Appointment {
+  +id: String
+  +clientId: String
+  +serviceId: String
+  +createdByUserId: String
+  +scheduledAt: DateTime
+  +endAt: DateTime
+  +status: AppointmentStatus
+  +notes: String
+  +createdAt: DateTime
+  +updatedAt: DateTime
+}
+
+class Payment {
+  +id: String
+  +appointmentId: String
+  +amount: Decimal
+  +status: PaymentStatus
+  +method: PaymentMethod
+  +paidAt: DateTime
+  +externalReference: String
+  +createdAt: DateTime
+  +updatedAt: DateTime
+}
+
+class UserRole {
+  admin
+  attendant
+  client
+}
+
+class AppointmentStatus {
+  scheduled
+  completed
+  cancelled
+  no_show
+}
+
+class PaymentStatus {
+  pending
+  paid
+  refunded
+  failed
+}
+
+class PaymentMethod {
+  cash
+  pix
+  credit_card
+  debit_card
+  other
+}
+
+User --> UserRole : role
+Appointment --> AppointmentStatus : status
+Payment --> PaymentStatus : status
+Payment --> PaymentMethod : method
+
+User "1" --> "0..1" Client : linked account
+User "1" --> "0..*" Appointment : created
+Client "1" --> "0..*" Appointment : owns
+Service "1" --> "0..*" Appointment : scheduled service
+Appointment "1" --> "0..*" Payment : payments
+        </pre>
+      </section>
+
+      <section>
+        <h2>Estrutura orientada a classes do backend</h2>
+        <pre class="mermaid">
+classDiagram
+direction TB
+
+class AppModule
+class PrismaModule
+class PrismaService {
+  +onModuleDestroy()
+}
+
+class UsersModule
+class UsersController {
+  +getMe()
+  +findAll()
+  +create()
+  +update()
+  +activate()
+  +deactivate()
+}
+class UsersService {
+  +findByEmail()
+  +findById()
+  +findAll()
+  +create()
+  +update()
+  +activate()
+  +deactivate()
+  +findOne()
+  +sanitizeUser()
+}
+
+class AuthModule
+class AuthController {
+  +login()
+}
+class AuthService {
+  +login()
+  +validateJwtUser()
+}
+class JwtStrategy {
+  +validate()
+}
+class JwtAuthGuard
+
+class ClientsModule
+class ClientsController {
+  +create()
+  +findAll()
+  +findOne()
+  +update()
+  +deactivate()
+}
+class ClientsService {
+  +create()
+  +findAll()
+  +findOne()
+  +update()
+  +deactivate()
+}
+
+class ServicesModule
+class ServicesController {
+  +create()
+  +findAll()
+  +findOne()
+  +update()
+  +deactivate()
+  +activate()
+}
+class ServicesService {
+  +create()
+  +findAll()
+  +findOne()
+  +update()
+  +deactivate()
+  +activate()
+}
+
+class AppointmentsModule
+class AppointmentsController {
+  +create()
+  +findAll()
+  +findOne()
+  +cancel()
+  +reschedule()
+}
+class AppointmentsService {
+  +create()
+  +findAll()
+  +findOne()
+  +cancel()
+  +reschedule()
+}
+
+class PaymentsModule
+class PaymentsController {
+  +create()
+  +findAll()
+  +findOne()
+  +update()
+}
+class PaymentsService {
+  +create()
+  +findAll()
+  +findOne()
+  +update()
+}
+
+class DashboardModule
+class DashboardController {
+  +getSummary()
+}
+class DashboardService {
+  +getSummary()
+}
+
+class RolesGuard {
+  +canActivate()
+}
+class Roles
+class CurrentUser
+class GlobalExceptionFilter {
+  +catch()
+}
+class RequestLoggingInterceptor {
+  +intercept()
+}
+class AppLoggerService {
+  +log()
+  +error()
+  +warn()
+  +debug()
+  +verbose()
+}
+
+AppModule --> PrismaModule
+AppModule --> UsersModule
+AppModule --> AuthModule
+AppModule --> ClientsModule
+AppModule --> ServicesModule
+AppModule --> AppointmentsModule
+AppModule --> PaymentsModule
+AppModule --> DashboardModule
+
+PrismaModule --> PrismaService
+
+UsersModule --> UsersController
+UsersModule --> UsersService
+UsersService --> PrismaService
+
+AuthModule --> UsersModule
+AuthModule --> AuthController
+AuthModule --> AuthService
+AuthModule --> JwtStrategy
+AuthService --> UsersService
+JwtStrategy --> AuthService
+
+ClientsModule --> ClientsController
+ClientsModule --> ClientsService
+ClientsService --> PrismaService
+
+ServicesModule --> ServicesController
+ServicesModule --> ServicesService
+ServicesService --> PrismaService
+
+AppointmentsModule --> AppointmentsController
+AppointmentsModule --> AppointmentsService
+AppointmentsService --> PrismaService
+
+PaymentsModule --> PaymentsController
+PaymentsModule --> PaymentsService
+PaymentsService --> PrismaService
+
+DashboardModule --> DashboardController
+DashboardModule --> DashboardService
+DashboardService --> PrismaService
+
+UsersController ..> JwtAuthGuard
+UsersController ..> RolesGuard
+UsersController ..> Roles
+UsersController ..> CurrentUser
+
+ClientsController ..> JwtAuthGuard
+ClientsController ..> RolesGuard
+ClientsController ..> Roles
+
+ServicesController ..> JwtAuthGuard
+ServicesController ..> RolesGuard
+ServicesController ..> Roles
+ServicesController ..> CurrentUser
+
+AppointmentsController ..> JwtAuthGuard
+AppointmentsController ..> RolesGuard
+AppointmentsController ..> Roles
+AppointmentsController ..> CurrentUser
+
+PaymentsController ..> JwtAuthGuard
+PaymentsController ..> RolesGuard
+PaymentsController ..> Roles
+PaymentsController ..> CurrentUser
+
+DashboardController ..> JwtAuthGuard
+DashboardController ..> RolesGuard
+DashboardController ..> Roles
+DashboardController ..> CurrentUser
+
+GlobalExceptionFilter --> AppLoggerService
+RequestLoggingInterceptor --> AppLoggerService
+        </pre>
+      </section>
+    </main>
+
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "default",
+      });
+    </script>
+  </body>
+</html>

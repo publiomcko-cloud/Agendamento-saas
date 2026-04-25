@@ -1,365 +1,265 @@
-# Sistema Web de Agendamento e Gestão para Pequenas Empresas
+# Sistema Web de Agendamento e Gestao para Pequenas Empresas
 
-Sistema web full-stack para gerenciamento de agendamentos, serviços, clientes e pagamentos, voltado para pequenas empresas como barbearias, clínicas, personal trainers e negócios baseados em atendimento por horário.
+Aplicacao full-stack para gestao de agenda, clientes, servicos e pagamentos, pensada como projeto de portfolio com fluxo ponta a ponta.
 
-## Objetivo
+## Status
 
-Este projeto foi concebido como um sistema de portfólio com foco em cenário real de mercado. O objetivo é demonstrar capacidade de projetar, desenvolver, testar e publicar uma aplicação full-stack com autenticação, regras de negócio, persistência de dados, documentação de API, deploy e observabilidade básica.
+MVP funcional localmente.
 
-## Problema que o sistema resolve
+Ja implementado:
 
-Muitos pequenos negócios ainda dependem de agenda manual, mensagens em aplicativos e planilhas para controlar horários, clientes e pagamentos. Isso costuma gerar conflitos de agenda, perda de informações, retrabalho e pouca visibilidade operacional.
+- autenticacao com JWT
+- perfis `admin`, `attendant` e `client`
+- gestao de usuarios
+- gestao de clientes
+- gestao de servicos
+- criacao, cancelamento e reagendamento de agendamentos
+- bloqueio de conflito de horario
+- registro e atualizacao de pagamentos
+- dashboard administrativo
+- frontend com navegacao por perfil
+- healthcheck
+- Swagger
+- logs estruturados
+- filtro global de excecoes
+- seed de desenvolvimento
+- testes criticos de backend
+- artefatos iniciais de deploy
 
-O sistema centraliza essas operações em uma aplicação web com acesso por perfil de usuário.
-
-## Público-alvo
-
-- Barbearias
-- Clínicas
-- Personal trainers
-- Estúdios
-- Professores particulares
-- Pequenas empresas baseadas em agendamento
-
-## Principais funcionalidades
-
-- Autenticação de usuários
-- Perfis de acesso: administrador, atendente e cliente
-- Cadastro e gerenciamento de serviços
-- Cadastro e gerenciamento de clientes
-- Criação, cancelamento e reagendamento de horários
-- Validação de conflito de agenda
-- Registro de pagamentos
-- Painel administrativo com visão operacional
-- Logs estruturados
-- Endpoint de healthcheck
-
-## Perfis de acesso
-
-### Administrador
-- Gerencia usuários
-- Gerencia serviços
-- Visualiza agenda completa
-- Acompanha pagamentos
-- Acessa indicadores do painel administrativo
-
-### Atendente
-- Realiza agendamentos
-- Consulta clientes
-- Atualiza status de atendimentos
-- Registra pagamentos
-
-### Cliente
-- Realiza login
-- Agenda horários
-- Consulta seus próprios agendamentos
-- Cancela ou reagenda conforme regras do sistema
-
-## Stack tecnológica
+## Stack
 
 ### Frontend
-- React
+
 - Next.js
+- React
 - TypeScript
 - Tailwind CSS
 
 ### Backend
-- Node.js
-- TypeScript
-- NestJS
 
-### Banco de dados
-- PostgreSQL
+- NestJS
+- TypeScript
 - Prisma ORM
+- PostgreSQL
 
 ### Testes
+
 - Jest
 - Supertest
 
-### Infra e deploy
+### Deploy
+
 - Docker
 - Vercel para frontend
-- Railway, Render ou VPS para backend
-- PostgreSQL gerenciado
+- Render, Railway ou Docker para backend
 
-## Arquitetura resumida
-
-O sistema segue uma arquitetura separada por camadas:
-
-- Frontend responsável pela interface e consumo da API
-- Backend responsável por autenticação, regras de negócio e persistência
-- Banco relacional para armazenamento estruturado
-- Logs estruturados para rastreabilidade
-- Healthcheck para monitoramento básico
-
-Documentações complementares podem ser mantidas em `docs/`, incluindo arquitetura detalhada, modelagem de banco e especificação técnica.
-
-## Estrutura prevista do projeto
+## Estrutura do projeto
 
 ```text
 .
-├── frontend
-│   ├── src
-│   ├── public
-│   └── package.json
-│
 ├── backend
-│   ├── src
-│   │   ├── modules
-│   │   ├── common
-│   │   ├── config
-│   │   └── main.ts
-│   ├── prisma
-│   │   ├── schema.prisma
-│   │   ├── migrations
-│   │   └── seed.ts
-│   └── package.json
-│
-└── docs
-    ├── especificacao-tecnica.pdf
-    ├── arquitetura.md
-    └── modelagem-banco.md
+├── frontend
+├── docs
+├── docker-compose.yml
+├── docker-compose.prod.yml
+└── to-do.md
 ```
 
-## Modelos principais
+## Como rodar localmente
 
-### User
-Representa os usuários do sistema.
+### 1. Subir o banco
 
-Campos previstos:
-- id
-- name
-- email
-- password
-- role
+Na raiz do projeto:
 
-### Service
-Representa os serviços oferecidos pela empresa.
+```bash
+docker compose up -d
+```
 
-Campos previstos:
-- id
-- name
-- duration
-- price
-- active
+### 2. Configurar variaveis de ambiente
 
-### Appointment
-Representa os agendamentos.
+```bash
+cp .env.example .env
+cp backend/.env.example backend/.env
+cp frontend/.env.example frontend/.env.local
+```
 
-Campos previstos:
-- id
-- clientId
-- serviceId
-- scheduledAt
-- status
-- notes
-
-### Payment
-Representa os pagamentos associados aos atendimentos.
-
-Campos previstos:
-- id
-- appointmentId
-- amount
-- status
-- method
-- paidAt
-
-## Regras de negócio principais
-
-- Um horário não pode ser reservado duas vezes para o mesmo recurso configurado
-- Apenas usuários autenticados podem acessar áreas protegidas
-- Cada perfil possui permissões específicas
-- Um cliente só pode visualizar seus próprios agendamentos
-- Cancelamentos e reagendamentos devem respeitar regras configuradas
-- Pagamentos devem estar vinculados a um atendimento válido
-
-## Documentação da API
-
-A API será documentada com Swagger/OpenAPI.
-
-Exemplos de rotas previstas:
-
-### Autenticação
-- `POST /auth/register`
-- `POST /auth/login`
-- `POST /auth/refresh`
-
-### Usuários
-- `GET /users`
-- `POST /users`
-- `PATCH /users/:id`
-
-### Serviços
-- `GET /services`
-- `POST /services`
-- `PATCH /services/:id`
-
-### Agendamentos
-- `GET /appointments`
-- `POST /appointments`
-- `PATCH /appointments/:id`
-- `DELETE /appointments/:id`
-
-### Pagamentos
-- `GET /payments`
-- `POST /payments`
-
-### Monitoramento
-- `GET /health`
-
-## Validação e segurança
-
-O sistema adota medidas básicas de segurança e consistência:
-
-- Autenticação com JWT
-- Hash de senha
-- Validação de payloads
-- Controle de acesso por perfil
-- Tratamento padronizado de erros
-- Separação entre variáveis de ambiente e código-fonte
-
-## Testes
-
-Os testes cobrem os fluxos críticos do sistema, com foco inicial em:
-
-- autenticação
-- autorização por perfil
-- criação de agendamento
-- bloqueio de conflito de horário
-- registro de pagamento
-- healthcheck
-
-## Observabilidade
-
-O projeto inclui observabilidade básica para ambiente de portfólio e MVP de produção:
-
-- logs estruturados
-- tratamento global de erros
-- endpoint de healthcheck
-- mensagens padronizadas de falha
-
-## Como rodar o projeto localmente
-
-### Pré-requisitos
-
-- Node.js
-- PostgreSQL
-- Docker opcional
-- npm ou pnpm
-
-### Backend
+### 3. Backend
 
 ```bash
 cd backend
 npm install
-cp .env.example .env
-npm run prisma:migrate
-npm run prisma:seed
+npx prisma generate
+npx prisma migrate dev
+npx prisma db seed
 npm run start:dev
 ```
 
-### Frontend
+API local:
+
+```text
+http://localhost:3333/api
+```
+
+Swagger:
+
+```text
+http://localhost:3333/api
+```
+
+Healthcheck:
+
+```text
+http://localhost:3333/api/health
+```
+
+### 4. Frontend
+
+Em outro terminal:
 
 ```bash
 cd frontend
 npm install
-cp .env.example .env.local
 npm run dev
 ```
 
-## Variáveis de ambiente esperadas
+Frontend local:
 
-### Backend
-
-```env
-DATABASE_URL=
-JWT_SECRET=
-PORT=
-NODE_ENV=
+```text
+http://localhost:3000
 ```
 
-### Frontend
+## Credenciais seed de desenvolvimento
 
-```env
-NEXT_PUBLIC_API_URL=
+- `admin@example.com` / `Admin@123456`
+- `attendant@example.com` / `Attendant@123456`
+- `client@example.com` / `Client@123456`
+
+## Funcionalidades por perfil
+
+### Admin
+
+- gerencia usuarios
+- gerencia clientes
+- gerencia servicos
+- gerencia agendamentos
+- registra e atualiza pagamentos
+- acessa dashboard
+
+### Attendant
+
+- consulta clientes
+- consulta servicos
+- cria, cancela e reagenda agendamentos na agenda operacional
+- registra e atualiza pagamentos
+- acessa dashboard
+
+### Client
+
+- faz login
+- cria agendamento proprio
+- consulta os proprios agendamentos
+- cancela ou reagenda seus proprios agendamentos
+
+## Endpoints principais
+
+### Autenticacao
+
+- `POST /api/auth/login`
+
+### Usuarios
+
+- `GET /api/users/me`
+- `GET /api/users`
+- `POST /api/users`
+- `PATCH /api/users/:id`
+- `PATCH /api/users/:id/activate`
+- `PATCH /api/users/:id/deactivate`
+
+### Clientes
+
+- `GET /api/clients`
+- `POST /api/clients`
+- `GET /api/clients/:id`
+- `PATCH /api/clients/:id`
+- `PATCH /api/clients/:id/deactivate`
+
+### Servicos
+
+- `GET /api/services`
+- `POST /api/services`
+- `GET /api/services/:id`
+- `PATCH /api/services/:id`
+- `PATCH /api/services/:id/activate`
+- `PATCH /api/services/:id/deactivate`
+
+### Agendamentos
+
+- `GET /api/appointments`
+- `POST /api/appointments`
+- `GET /api/appointments/:id`
+- `PATCH /api/appointments/:id/cancel`
+- `PATCH /api/appointments/:id/reschedule`
+
+### Pagamentos
+
+- `GET /api/payments`
+- `GET /api/payments/:id`
+- `POST /api/payments`
+- `PATCH /api/payments/:id`
+
+### Dashboard
+
+- `GET /api/dashboard`
+
+### Monitoramento
+
+- `GET /api/health`
+
+## Observabilidade
+
+O backend hoje inclui:
+
+- logs estruturados em JSON
+- log de requisicoes concluídas
+- filtro global de excecoes
+- payload padronizado de erro
+- endpoint de healthcheck
+
+## Testes
+
+Backend:
+
+```bash
+cd backend
+npm run lint
+npm test
+npm run test:e2e
+npm run build
 ```
 
-## Seed inicial
+Frontend:
 
-A base inicial deve conter dados mínimos para acelerar testes locais:
-
-- 1 usuário administrador
-- 1 usuário atendente
-- 1 cliente de exemplo
-- 3 serviços cadastrados
-- alguns agendamentos simulados
+```bash
+cd frontend
+npm run lint
+npm run build
+```
 
 ## Deploy
 
-### Estratégia sugerida
-- Frontend em Vercel
-- Backend em Railway ou Render
-- Banco PostgreSQL gerenciado
+Artefatos incluidos:
 
-### Requisitos de deploy
-- variáveis de ambiente configuradas
-- migrações executadas
-- build validado
-- healthcheck funcional
+- [backend/Dockerfile](/home/publio/projetos/agendamento-saas/backend/Dockerfile:1)
+- [frontend/Dockerfile](/home/publio/projetos/agendamento-saas/frontend/Dockerfile:1)
+- [docker-compose.prod.yml](/home/publio/projetos/agendamento-saas/docker-compose.prod.yml:1)
 
-## Status do projeto
+Guia de publicacao:
 
-Em fase de planejamento e estruturação inicial.
+- [docs/deploy_inicial_projeto_ancora_1.md](/home/publio/projetos/agendamento-saas/docs/deploy_inicial_projeto_ancora_1.md:1)
 
-## Roadmap
+## Documentacao complementar
 
-### MVP
-- autenticação
-- perfis de acesso
-- cadastro de serviços
-- cadastro de clientes
-- agendamento com validação
-- painel administrativo básico
-- registro de pagamentos
-- deploy inicial
-
-### Evoluções futuras
-- integração com Stripe ou Mercado Pago
-- notificações por e-mail e WhatsApp
-- agenda em visualização de calendário
-- relatórios gerenciais
-- arquitetura multi-tenant
-- auditoria de ações do sistema
-
-## Demonstração
-
-Links serão adicionados após a publicação do MVP:
-
-- demo pública
-- documentação da API
-- vídeo curto de apresentação
-- especificação técnica
-
-## Diferenciais do projeto
-
-Este projeto foi concebido para demonstrar competências diretamente valorizadas em vagas de desenvolvimento e projetos freelance:
-
-- CRUD completo com regras reais
-- autenticação e autorização
-- documentação de API
-- banco com migrações e seed
-- testes de endpoints críticos
-- deploy em ambiente real
-- observabilidade básica
-
-## Autor
-
-Nome: Seu Nome  
-GitHub: seu-link  
-LinkedIn: seu-link  
-Portfólio: seu-link
-
-## Licença
-
-Este projeto pode ser publicado sob licença MIT.
+- [docs/diagrama_classes_mermaid.md](/home/publio/projetos/agendamento-saas/docs/diagrama_classes_mermaid.md:1)
+- [docs/instrucoes_para_agente.md](/home/publio/projetos/agendamento-saas/docs/instrucoes_para_agente.md:1)
+- [docs/README_projeto_ancora_1.md](/home/publio/projetos/agendamento-saas/docs/README_projeto_ancora_1.md:1)
+- [docs/deploy_inicial_projeto_ancora_1.md](/home/publio/projetos/agendamento-saas/docs/deploy_inicial_projeto_ancora_1.md:1)

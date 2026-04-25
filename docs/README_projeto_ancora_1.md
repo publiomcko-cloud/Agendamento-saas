@@ -1,261 +1,168 @@
-# Sistema Web de Agendamento e Gestão para Pequenas Empresas
-
-Sistema web full-stack para gerenciamento de agendamentos, serviços, clientes e pagamentos, voltado para pequenas empresas como barbearias, clínicas, personal trainers e negócios baseados em atendimento por horário.
+# README do Projeto Ancora 1
 
 ## Objetivo
 
-Este projeto foi concebido como um sistema de portfólio com foco em cenário real de mercado. O objetivo é demonstrar capacidade de projetar, desenvolver, testar e publicar uma aplicação full-stack com autenticação, regras de negócio, persistência de dados, documentação de API, deploy e observabilidade básica.
+Este documento resume o estado atual do Sistema Web de Agendamento e Gestao para Pequenas Empresas e serve como referencia de alto nivel para escopo, fluxo funcional e execucao.
 
-## Problema que o sistema resolve
+## Estado atual
 
-Muitos pequenos negócios ainda dependem de agenda manual, mensagens em aplicativos e planilhas para controlar horários, clientes e pagamentos. Isso costuma gerar conflitos de agenda, perda de informações, retrabalho e pouca visibilidade operacional.
+O projeto ja possui MVP funcional localmente, com backend e frontend integrados.
 
-O sistema centraliza essas operações em uma aplicação web com acesso por perfil de usuário.
+Implementado:
 
-## Público-alvo
-
-- Barbearias
-- Clínicas
-- Personal trainers
-- Estúdios
-- Professores particulares
-- Pequenas empresas baseadas em agendamento
+- login com JWT
+- perfis `admin`, `attendant` e `client`
+- usuarios administrativos
+- clientes
+- servicos
+- agendamentos com conflito bloqueado
+- pagamentos manuais
+- dashboard
+- healthcheck
+- Swagger
+- logs estruturados
+- filtro global de excecoes
+- artefatos de deploy inicial
 
 ## Principais funcionalidades
 
-- Autenticação de usuários
-- Perfis de acesso: administrador, atendente e cliente
-- Cadastro e gerenciamento de serviços
-- Cadastro e gerenciamento de clientes
-- Criação, cancelamento e reagendamento de horários
-- Validação de conflito de agenda
-- Registro de pagamentos
-- Painel administrativo com visão operacional
-- Logs estruturados
-- Endpoint de healthcheck
+- autenticacao de usuarios
+- controle de acesso por perfil
+- cadastro e gerenciamento de clientes
+- cadastro e gerenciamento de servicos
+- criacao, cancelamento e reagendamento de agendamentos
+- validacao de conflito de agenda
+- registro de pagamentos
+- painel administrativo com visao operacional
+- observabilidade basica
 
 ## Perfis de acesso
 
 ### Administrador
-- Gerencia usuários
-- Gerencia serviços
-- Visualiza agenda completa
-- Acompanha pagamentos
-- Acessa indicadores do painel administrativo
+
+- gerencia usuarios
+- gerencia servicos
+- visualiza agenda completa
+- acompanha pagamentos
+- acessa indicadores do dashboard
 
 ### Atendente
-- Realiza agendamentos
-- Consulta clientes
-- Atualiza status de atendimentos
-- Registra pagamentos
+
+- realiza agendamentos
+- consulta clientes
+- consulta servicos
+- registra pagamentos
+- acessa dashboard
 
 ### Cliente
-- Realiza login
-- Agenda horários
-- Consulta seus próprios agendamentos
-- Cancela ou reagenda conforme regras do sistema
 
-## Stack tecnológica
+- realiza login
+- cria agendamentos proprios
+- consulta seus agendamentos
+- cancela ou reagenda os proprios agendamentos
+
+## Stack
 
 ### Frontend
+
 - React
 - Next.js
 - TypeScript
 - Tailwind CSS
 
 ### Backend
+
 - Node.js
 - TypeScript
 - NestJS
 
 ### Banco de dados
+
 - PostgreSQL
 - Prisma ORM
 
 ### Testes
+
 - Jest
 - Supertest
 
 ### Infra e deploy
+
 - Docker
 - Vercel para frontend
-- Railway, Render ou VPS para backend
-- PostgreSQL gerenciado
+- Render, Railway ou Docker para backend
 
-## Arquitetura resumida
+## Rotas principais implementadas
 
-O sistema segue uma arquitetura separada por camadas:
+### Autenticacao
 
-- Frontend responsável pela interface e consumo da API
-- Backend responsável por autenticação, regras de negócio e persistência
-- Banco relacional para armazenamento estruturado
-- Logs estruturados para rastreabilidade
-- Healthcheck para monitoramento básico
+- `POST /api/auth/login`
 
-Documentações complementares podem ser mantidas em `docs/`, incluindo arquitetura detalhada, modelagem de banco e especificação técnica.
+### Usuarios
 
-## Estrutura prevista do projeto
+- `GET /api/users/me`
+- `GET /api/users`
+- `POST /api/users`
+- `PATCH /api/users/:id`
+- `PATCH /api/users/:id/activate`
+- `PATCH /api/users/:id/deactivate`
 
-```text
-.
-├── frontend
-│   ├── src
-│   ├── public
-│   └── package.json
-│
-├── backend
-│   ├── src
-│   │   ├── modules
-│   │   ├── common
-│   │   ├── config
-│   │   └── main.ts
-│   ├── prisma
-│   │   ├── schema.prisma
-│   │   ├── migrations
-│   │   └── seed.ts
-│   └── package.json
-│
-└── docs
-    ├── especificacao-tecnica.pdf
-    ├── arquitetura.md
-    └── modelagem-banco.md
-```
+### Clientes
 
-## Modelos principais
+- `GET /api/clients`
+- `POST /api/clients`
+- `GET /api/clients/:id`
+- `PATCH /api/clients/:id`
+- `PATCH /api/clients/:id/deactivate`
 
-### User
-Representa os usuários do sistema.
+### Servicos
 
-Campos previstos:
-- id
-- name
-- email
-- password
-- role
-
-### Service
-Representa os serviços oferecidos pela empresa.
-
-Campos previstos:
-- id
-- name
-- duration
-- price
-- active
-
-### Appointment
-Representa os agendamentos.
-
-Campos previstos:
-- id
-- clientId
-- serviceId
-- scheduledAt
-- status
-- notes
-
-### Payment
-Representa os pagamentos associados aos atendimentos.
-
-Campos previstos:
-- id
-- appointmentId
-- amount
-- status
-- method
-- paidAt
-
-## Regras de negócio principais
-
-- Um horário não pode ser reservado duas vezes para o mesmo recurso configurado
-- Apenas usuários autenticados podem acessar áreas protegidas
-- Cada perfil possui permissões específicas
-- Um cliente só pode visualizar seus próprios agendamentos
-- Cancelamentos e reagendamentos devem respeitar regras configuradas
-- Pagamentos devem estar vinculados a um atendimento válido
-
-## Documentação da API
-
-A API será documentada com Swagger/OpenAPI.
-
-Exemplos de rotas previstas:
-
-### Autenticação
-- `POST /auth/register`
-- `POST /auth/login`
-- `POST /auth/refresh`
-
-### Usuários
-- `GET /users`
-- `POST /users`
-- `PATCH /users/:id`
-
-### Serviços
-- `GET /services`
-- `POST /services`
-- `PATCH /services/:id`
+- `GET /api/services`
+- `POST /api/services`
+- `GET /api/services/:id`
+- `PATCH /api/services/:id`
+- `PATCH /api/services/:id/activate`
+- `PATCH /api/services/:id/deactivate`
 
 ### Agendamentos
-- `GET /appointments`
-- `POST /appointments`
-- `PATCH /appointments/:id`
-- `DELETE /appointments/:id`
+
+- `GET /api/appointments`
+- `POST /api/appointments`
+- `GET /api/appointments/:id`
+- `PATCH /api/appointments/:id/cancel`
+- `PATCH /api/appointments/:id/reschedule`
 
 ### Pagamentos
-- `GET /payments`
-- `POST /payments`
+
+- `GET /api/payments`
+- `GET /api/payments/:id`
+- `POST /api/payments`
+- `PATCH /api/payments/:id`
+
+### Dashboard
+
+- `GET /api/dashboard`
 
 ### Monitoramento
-- `GET /health`
 
-## Validação e segurança
+- `GET /api/health`
 
-O sistema adota medidas básicas de segurança e consistência:
+## Execucao local resumida
 
-- Autenticação com JWT
-- Hash de senha
-- Validação de payloads
-- Controle de acesso por perfil
-- Tratamento padronizado de erros
-- Separação entre variáveis de ambiente e código-fonte
+### Banco
 
-## Testes
-
-Os testes cobrem os fluxos críticos do sistema, com foco inicial em:
-
-- autenticação
-- autorização por perfil
-- criação de agendamento
-- bloqueio de conflito de horário
-- registro de pagamento
-- healthcheck
-
-## Observabilidade
-
-O projeto inclui observabilidade básica para ambiente de portfólio e MVP de produção:
-
-- logs estruturados
-- tratamento global de erros
-- endpoint de healthcheck
-- mensagens padronizadas de falha
-
-## Como rodar o projeto localmente
-
-### Pré-requisitos
-
-- Node.js
-- PostgreSQL
-- Docker opcional
-- npm ou pnpm
+```bash
+docker compose up -d
+```
 
 ### Backend
 
 ```bash
 cd backend
 npm install
-cp .env.example .env
-npm run prisma:migrate
-npm run prisma:seed
+npx prisma generate
+npx prisma migrate dev
+npx prisma db seed
 npm run start:dev
 ```
 
@@ -264,102 +171,32 @@ npm run start:dev
 ```bash
 cd frontend
 npm install
-cp .env.example .env.local
 npm run dev
 ```
 
-## Variáveis de ambiente esperadas
+## Enderecos locais
 
-### Backend
+- frontend: `http://localhost:3000`
+- backend: `http://localhost:3333/api`
+- swagger: `http://localhost:3333/api`
+- healthcheck: `http://localhost:3333/api/health`
 
-```env
-DATABASE_URL=
-JWT_SECRET=
-PORT=
-NODE_ENV=
-```
+## Credenciais locais
 
-### Frontend
+- `admin@example.com` / `Admin@123456`
+- `attendant@example.com` / `Attendant@123456`
+- `client@example.com` / `Client@123456`
 
-```env
-NEXT_PUBLIC_API_URL=
-```
+## Observabilidade
 
-## Seed inicial
+O backend inclui:
 
-A base inicial deve conter dados mínimos para acelerar testes locais:
-
-- 1 usuário administrador
-- 1 usuário atendente
-- 1 cliente de exemplo
-- 3 serviços cadastrados
-- alguns agendamentos simulados
+- logs estruturados
+- log de requisicoes
+- filtro global de excecoes
+- mensagens padronizadas de falha
+- endpoint de healthcheck
 
 ## Deploy
 
-### Estratégia sugerida
-- Frontend em Vercel
-- Backend em Railway ou Render
-- Banco PostgreSQL gerenciado
-
-### Requisitos de deploy
-- variáveis de ambiente configuradas
-- migrações executadas
-- build validado
-- healthcheck funcional
-
-## Status do projeto
-
-Em fase de planejamento e estruturação inicial.
-
-## Roadmap
-
-### MVP
-- autenticação
-- perfis de acesso
-- cadastro de serviços
-- cadastro de clientes
-- agendamento com validação
-- painel administrativo básico
-- registro de pagamentos
-- deploy inicial
-
-### Evoluções futuras
-- integração com Stripe ou Mercado Pago
-- notificações por e-mail e WhatsApp
-- agenda em visualização de calendário
-- relatórios gerenciais
-- arquitetura multi-tenant
-- auditoria de ações do sistema
-
-## Demonstração
-
-Links serão adicionados após a publicação do MVP:
-
-- demo pública
-- documentação da API
-- vídeo curto de apresentação
-- especificação técnica
-
-## Diferenciais do projeto
-
-Este projeto foi concebido para demonstrar competências diretamente valorizadas em vagas de desenvolvimento e projetos freelance:
-
-- CRUD completo com regras reais
-- autenticação e autorização
-- documentação de API
-- banco com migrações e seed
-- testes de endpoints críticos
-- deploy em ambiente real
-- observabilidade básica
-
-## Autor
-
-Nome: Seu Nome  
-GitHub: seu-link  
-LinkedIn: seu-link  
-Portfólio: seu-link
-
-## Licença
-
-Este projeto pode ser publicado sob licença MIT.
+O projeto possui artefatos iniciais de publicacao e um guia especifico em [docs/deploy_inicial_projeto_ancora_1.md](/home/publio/projetos/agendamento-saas/docs/deploy_inicial_projeto_ancora_1.md:1).

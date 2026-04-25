@@ -1,0 +1,100 @@
+classDiagram
+direction LR
+
+class User {
+  id: String
+  name: String
+  email: String
+  passwordHash: String
+  role: UserRole
+  active: Boolean
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+class Client {
+  id: String
+  name: String
+  email: String
+  phone: String
+  notes: String
+  active: Boolean
+  userId: String
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+class Service {
+  id: String
+  name: String
+  description: String
+  durationMinutes: Int
+  price: Decimal
+  active: Boolean
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+class Appointment {
+  id: String
+  clientId: String
+  serviceId: String
+  createdByUserId: String
+  scheduledAt: DateTime
+  endAt: DateTime
+  status: AppointmentStatus
+  notes: String
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+class Payment {
+  id: String
+  appointmentId: String
+  amount: Decimal
+  status: PaymentStatus
+  method: PaymentMethod
+  paidAt: DateTime
+  externalReference: String
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+class UserRole {
+  admin
+  attendant
+  client
+}
+
+class AppointmentStatus {
+  scheduled
+  completed
+  cancelled
+  no_show
+}
+
+class PaymentStatus {
+  pending
+  paid
+  refunded
+  failed
+}
+
+class PaymentMethod {
+  cash
+  pix
+  credit_card
+  debit_card
+  other
+}
+
+User --> UserRole : role
+Appointment --> AppointmentStatus : status
+Payment --> PaymentStatus : status
+Payment --> PaymentMethod : method
+
+User "1" --> "0..1" Client : linked account
+User "1" --> "0..*" Appointment : created
+Client "1" --> "0..*" Appointment : owns
+Service "1" --> "0..*" Appointment : scheduled service
+Appointment "1" --> "0..*" Payment : payments

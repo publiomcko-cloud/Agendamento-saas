@@ -1,0 +1,207 @@
+classDiagram
+direction TB
+
+class AppModule
+class PrismaModule
+class PrismaService {
+  onModuleDestroy()
+}
+
+class UsersModule
+class UsersController {
+  getMe()
+  findAll()
+  create()
+  update()
+  activate()
+  deactivate()
+}
+class UsersService {
+  findByEmail()
+  findById()
+  findAll()
+  create()
+  update()
+  activate()
+  deactivate()
+  findOne()
+  sanitizeUser()
+}
+
+class AuthModule
+class AuthController {
+  login()
+}
+class AuthService {
+  login()
+  validateJwtUser()
+}
+class JwtStrategy {
+  validate()
+}
+class JwtAuthGuard
+
+class ClientsModule
+class ClientsController {
+  create()
+  findAll()
+  findOne()
+  update()
+  deactivate()
+}
+class ClientsService {
+  create()
+  findAll()
+  findOne()
+  update()
+  deactivate()
+}
+
+class ServicesModule
+class ServicesController {
+  create()
+  findAll()
+  findOne()
+  update()
+  deactivate()
+  activate()
+}
+class ServicesService {
+  create()
+  findAll()
+  findOne()
+  update()
+  deactivate()
+  activate()
+}
+
+class AppointmentsModule
+class AppointmentsController {
+  create()
+  findAll()
+  findOne()
+  cancel()
+  reschedule()
+}
+class AppointmentsService {
+  create()
+  findAll()
+  findOne()
+  cancel()
+  reschedule()
+}
+
+class PaymentsModule
+class PaymentsController {
+  create()
+  findAll()
+  findOne()
+  update()
+}
+class PaymentsService {
+  create()
+  findAll()
+  findOne()
+  update()
+}
+
+class DashboardModule
+class DashboardController {
+  getSummary()
+}
+class DashboardService {
+  getSummary()
+}
+
+class RolesGuard {
+  canActivate()
+}
+class Roles
+class CurrentUser
+class GlobalExceptionFilter {
+  catch()
+}
+class RequestLoggingInterceptor {
+  intercept()
+}
+class AppLoggerService {
+  log()
+  error()
+  warn()
+  debug()
+  verbose()
+}
+
+AppModule --> PrismaModule
+AppModule --> UsersModule
+AppModule --> AuthModule
+AppModule --> ClientsModule
+AppModule --> ServicesModule
+AppModule --> AppointmentsModule
+AppModule --> PaymentsModule
+AppModule --> DashboardModule
+
+PrismaModule --> PrismaService
+
+UsersModule --> UsersController
+UsersModule --> UsersService
+UsersService --> PrismaService
+
+AuthModule --> UsersModule
+AuthModule --> AuthController
+AuthModule --> AuthService
+AuthModule --> JwtStrategy
+AuthService --> UsersService
+JwtStrategy --> AuthService
+
+ClientsModule --> ClientsController
+ClientsModule --> ClientsService
+ClientsService --> PrismaService
+
+ServicesModule --> ServicesController
+ServicesModule --> ServicesService
+ServicesService --> PrismaService
+
+AppointmentsModule --> AppointmentsController
+AppointmentsModule --> AppointmentsService
+AppointmentsService --> PrismaService
+
+PaymentsModule --> PaymentsController
+PaymentsModule --> PaymentsService
+PaymentsService --> PrismaService
+
+DashboardModule --> DashboardController
+DashboardModule --> DashboardService
+DashboardService --> PrismaService
+
+UsersController ..> JwtAuthGuard
+UsersController ..> RolesGuard
+UsersController ..> Roles
+UsersController ..> CurrentUser
+
+ClientsController ..> JwtAuthGuard
+ClientsController ..> RolesGuard
+ClientsController ..> Roles
+
+ServicesController ..> JwtAuthGuard
+ServicesController ..> RolesGuard
+ServicesController ..> Roles
+ServicesController ..> CurrentUser
+
+AppointmentsController ..> JwtAuthGuard
+AppointmentsController ..> RolesGuard
+AppointmentsController ..> Roles
+AppointmentsController ..> CurrentUser
+
+PaymentsController ..> JwtAuthGuard
+PaymentsController ..> RolesGuard
+PaymentsController ..> Roles
+PaymentsController ..> CurrentUser
+
+DashboardController ..> JwtAuthGuard
+DashboardController ..> RolesGuard
+DashboardController ..> Roles
+DashboardController ..> CurrentUser
+
+GlobalExceptionFilter --> AppLoggerService
+RequestLoggingInterceptor --> AppLoggerService
