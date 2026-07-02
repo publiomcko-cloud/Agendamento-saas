@@ -6,9 +6,13 @@ This project is a portfolio-ready SaaS-style demo built to show practical produc
 
 ## Live Portfolio Demo
 
-Public deployment pending.
+Public portfolio demo:
 
-Current demo mode:
+- Frontend: https://agendamento-saas-sigma.vercel.app
+- Backend health: https://agendamento-saas-api.onrender.com/api/health
+- API docs: https://agendamento-saas-api.onrender.com/api
+
+Local demo mode:
 
 - Local frontend: `http://localhost:3000`
 - Local backend health: `http://localhost:3333/api/health`
@@ -16,7 +20,7 @@ Current demo mode:
 
 If port `3000` is already in use, the frontend may start on `http://localhost:3001`.
 
-Target public stack for the next release:
+Public stack:
 
 - Frontend: Vercel
 - Backend: Render
@@ -83,19 +87,25 @@ It can be adapted into solutions such as:
 
 ## Screenshots
 
-Screenshots are planned as the next portfolio-polish step and are not yet included in the repository.
+| Login | Dashboard |
+| --- | --- |
+| ![Login and demo accounts](docs/screenshots/01-login.png) | ![Admin dashboard with operational metrics](docs/screenshots/02-dashboard.png) |
 
-Planned capture set:
+| Users | Clients |
+| --- | --- |
+| ![Administrative user management](docs/screenshots/03-users.png) | ![Client management screen](docs/screenshots/04-clients.png) |
 
-- login
-- admin dashboard
-- users
-- clients
-- services
-- appointments
-- payments
-- client appointments
-- new client booking
+| Services | Appointments |
+| --- | --- |
+| ![Service catalog management](docs/screenshots/05-services.png) | ![Operational appointment schedule](docs/screenshots/06-appointments.png) |
+
+| Payments | Client Area |
+| --- | --- |
+| ![Payment tracking screen](docs/screenshots/07-payments.png) | ![Client appointments screen](docs/screenshots/08-my-appointments.png) |
+
+| New Booking | Mobile Dashboard |
+| --- | --- |
+| ![Client booking flow](docs/screenshots/09-book-appointment.png) | ![Mobile dashboard view](docs/screenshots/10-mobile-dashboard.png) |
 
 ## Main Features
 
@@ -332,6 +342,7 @@ npm run build
 - [Screen flows](docs/fluxos_telas_projeto_ancora_1.md)
 - [Deployment guide](docs/deploy_inicial_projeto_ancora_1.md)
 - [Public demo deployment](docs/public_demo_deployment.md)
+- [Demo script](docs/demo_script.md)
 - [Final MVP review](docs/revisao_final_aderencia_mvp.md)
 - [Class diagram](docs/diagrama_classes_mermaid.html)
 
@@ -344,8 +355,6 @@ npm run build
 
 ## Known Limitations
 
-- no public demo URL yet
-- screenshots are not yet included
 - no automated notifications
 - no advanced calendar view
 - no payment gateway integration

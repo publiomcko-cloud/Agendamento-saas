@@ -467,16 +467,16 @@ Colocar o projeto online com stack publica de portfolio.
 
 ## Ordem recomendada de execucao
 
-1. Reestruturar `README.md`
-2. Criar `docs/screenshots/`
-3. Capturar screenshots
-4. Criar `docs/demo_script.md`
+1. Reestruturar `README.md` - concluido
+2. Criar `docs/screenshots/` - concluido
+3. Capturar screenshots - concluido
+4. Criar `docs/demo_script.md` - concluido
 5. Criar `docs/portfolio_readiness.md`
 6. Criar `docs/current_state.md`
 7. Criar `docs/case_study.md`
 8. Criar `docs/testing.md`
-9. Executar Fase 9 de deploy publico
-10. Revisar README com URLs finais
+9. Executar Fase 9 de deploy publico - concluido
+10. Revisar README com URLs finais - concluido
 11. Revisar links e consistencia
 12. Opcional: gravar video demo
 
@@ -491,4 +491,4 @@ O projeto deve transmitir com clareza que e:
 
 ## Proximo passo pratico
 
-Comecar pelo `README.md`, porque ele concentra o maior ganho de apresentacao com o menor custo.
+Criar `docs/portfolio_readiness.md`, registrando o checklist final do projeto com status real de README, demo publica, screenshots, validacao, seguranca do demo e proximos refinamentos.
