@@ -100,7 +100,7 @@ o arquivo `render.yaml` declara variaveis sensiveis com `sync: false`. Isso faz 
 O container do backend ja esta preparado para executar:
 
 ```bash
-npx prisma migrate deploy && node dist/main
+npx prisma migrate deploy && node dist/src/main.js
 ```
 
 Isso significa que, ao subir o container com `DATABASE_URL` valida, o schema sera aplicado automaticamente.

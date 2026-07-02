@@ -96,7 +96,7 @@ Se usar o [render.yaml](/home/publio/projetos/agendamento-saas/render.yaml:1), p
 O container executa:
 
 ```bash
-npx prisma migrate deploy && node dist/main
+npx prisma migrate deploy && node dist/src/main.js
 ```
 
 Fluxo recomendado para este projeto:
