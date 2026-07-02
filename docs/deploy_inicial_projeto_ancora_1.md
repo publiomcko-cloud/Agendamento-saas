@@ -91,6 +91,8 @@ Se a porta `3000` estiver ocupada no host, ajuste o mapeamento do frontend confo
 3. Garanta que o banco PostgreSQL remoto esteja criado
 4. Publique usando o `Dockerfile`
 
+Se usar o [render.yaml](/home/publio/projetos/agendamento-saas/render.yaml:1), preencha manualmente no Render as variaveis marcadas como `sync: false`, especialmente `DATABASE_URL`, `JWT_SECRET` e `CORS_ORIGINS`.
+
 O container executa:
 
 ```bash

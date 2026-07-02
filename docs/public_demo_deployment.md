@@ -92,6 +92,9 @@ Opcao recomendada: usar o `render.yaml` da raiz do repositorio.
    - `CORS_ORIGINS`
 8. Execute o deploy.
 
+Importante:
+o arquivo `render.yaml` declara variaveis sensiveis com `sync: false`. Isso faz o Render pedir que voce preencha esses valores no painel. Se `DATABASE_URL` ficar vazio, o deploy sobe a imagem, mas cai na inicializacao com erro do Prisma em `migrate deploy`.
+
 ### 3. Rodar migracoes no backend publicado
 
 O container do backend ja esta preparado para executar:
@@ -114,6 +117,7 @@ Se o healthcheck falhar:
 - revise `DATABASE_URL`
 - confira se o Supabase aceita a conexao
 - confira se `JWT_SECRET` esta preenchido
+- confirme que as variaveis marcadas como `sync: false` foram realmente preenchidas no Render
 
 ### 5. Publicar o frontend na Vercel
 
