@@ -12,6 +12,12 @@ Para o estado atual do projeto, este deploy e opcional. O MVP ja e considerado c
 - backend: Render, Railway ou container Docker
 - banco: PostgreSQL gerenciado
 
+Stack recomendada para o portfolio publico:
+
+- frontend: Vercel
+- backend: Render
+- banco: Supabase PostgreSQL
+
 ## Variaveis de ambiente
 
 ### Backend
@@ -21,9 +27,10 @@ Obrigatorias:
 ```env
 NODE_ENV=production
 PORT=3333
-DATABASE_URL=postgresql://USER:PASSWORD@HOST:5432/DB_NAME?schema=public
+DATABASE_URL=postgresql://USER:PASSWORD@HOST:5432/DB_NAME?schema=public&sslmode=require
 JWT_SECRET=defina-um-segredo-forte
 JWT_EXPIRES_IN=1d
+CORS_ORIGINS=https://seu-frontend.vercel.app
 ```
 
 ### Frontend
@@ -89,6 +96,16 @@ O container executa:
 ```bash
 npx prisma migrate deploy && node dist/main
 ```
+
+Fluxo recomendado para este projeto:
+
+1. banco remoto no Supabase
+2. backend no Render
+3. frontend na Vercel
+
+Passo a passo detalhado:
+
+- [docs/public_demo_deployment.md](/home/publio/projetos/agendamento-saas/docs/public_demo_deployment.md:1)
 
 ## Publicacao do frontend em Vercel
 
