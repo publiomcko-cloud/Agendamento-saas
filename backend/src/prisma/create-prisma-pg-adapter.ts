@@ -2,11 +2,14 @@ import { PrismaPg } from '@prisma/adapter-pg';
 import type { PoolConfig } from 'pg';
 
 export function createPrismaPgAdapter(connectionString: string) {
+  const shouldDisableTls = shouldDisableTlsVerification(connectionString);
   const poolConfig: PoolConfig = {
-    connectionString,
+    connectionString: shouldDisableTls
+      ? forceNoVerifySslMode(connectionString)
+      : connectionString,
   };
 
-  if (shouldDisableTlsVerification(connectionString)) {
+  if (shouldDisableTls) {
     poolConfig.ssl = {
       rejectUnauthorized: false,
     };
@@ -23,4 +26,12 @@ function shouldDisableTlsVerification(connectionString: string) {
   }
 
   return connectionString.includes('supabase.co');
+}
+
+function forceNoVerifySslMode(connectionString: string) {
+  const url = new URL(connectionString);
+
+  url.searchParams.set('sslmode', 'no-verify');
+
+  return url.toString();
 }

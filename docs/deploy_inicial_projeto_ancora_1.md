@@ -27,7 +27,7 @@ Obrigatorias:
 ```env
 NODE_ENV=production
 PORT=3333
-DATABASE_URL=postgresql://USER:PASSWORD@HOST:5432/DB_NAME?schema=public&sslmode=require
+DATABASE_URL=postgresql://USER:PASSWORD@HOST:5432/DB_NAME?schema=public&sslmode=no-verify
 JWT_SECRET=defina-um-segredo-forte
 JWT_EXPIRES_IN=1d
 CORS_ORIGINS=https://seu-frontend.vercel.app
