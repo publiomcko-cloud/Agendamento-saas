@@ -4,6 +4,8 @@
 
 Este documento descreve um caminho simples e reproduzivel para publicar o MVP em ambiente inicial de producao.
 
+Para o estado atual do projeto, este deploy e opcional. O MVP ja e considerado concluido para portfolio por funcionar localmente, possuir documentacao, testes criticos e artefatos de publicacao preparados.
+
 ## Estrategia recomendada
 
 - frontend: Vercel
@@ -70,6 +72,8 @@ Endpoints esperados:
 - frontend: `http://localhost:3000`
 - backend: `http://localhost:3333/api`
 - healthcheck: `http://localhost:3333/api/health`
+
+Se a porta `3000` estiver ocupada no host, ajuste o mapeamento do frontend conforme necessario.
 
 ## Publicacao do backend em Render ou Railway
 

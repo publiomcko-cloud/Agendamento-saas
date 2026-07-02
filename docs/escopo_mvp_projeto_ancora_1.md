@@ -25,7 +25,7 @@ A primeira versão precisa provar que o sistema consegue:
 - impedir conflitos básicos de agenda
 - registrar pagamentos
 - oferecer uma visão administrativa inicial
-- rodar localmente e em ambiente publicado
+- rodar localmente de forma confiavel e estar preparado para publicacao, se desejado
 
 ## 4. Escopo Funcional Incluído
 
@@ -148,7 +148,7 @@ O MVP deve incluir:
 - Prisma com migrações
 - seed inicial
 - documentação de API básica
-- deploy inicial
+- artefatos de deploy inicial
 - variáveis de ambiente organizadas
 
 ## 6. Escopo Técnico Excluído do MVP
@@ -176,7 +176,8 @@ O MVP será considerado pronto quando atender aos seguintes critérios:
 - dashboard inicial funcional
 - testes dos endpoints críticos executando com sucesso
 - API documentada em nível inicial
-- aplicação publicada
+- aplicacao executando localmente com demonstracao ponta a ponta
+- artefatos de deploy validados e prontos para publicacao opcional
 - README atualizado com instruções de execução e links principais
 
 ## 8. Funcionalidades que Devem Esperar
@@ -219,4 +220,4 @@ Esse fluxo deve funcionar ponta a ponta.
 
 ## 11. Conclusão
 
-O escopo do MVP foi definido para equilibrar valor de negócio, viabilidade de entrega e força de portfólio. Ele deve ser tratado como limite operacional do projeto até a primeira publicação funcional.
+O escopo do MVP foi definido para equilibrar valor de negócio, viabilidade de entrega e força de portfolio. Para este projeto, a conclusao do MVP e medida principalmente pela demonstracao funcional local e pela consistencia do codigo e da documentacao. A publicacao em nuvem permanece como extensao opcional.

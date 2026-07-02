@@ -4,6 +4,10 @@
 
 Este documento organiza a execução do projeto em fases, épicos, funcionalidades e tarefas técnicas. O objetivo é transformar a documentação do sistema em um plano prático de construção, priorizando entrega incremental, clareza de escopo e viabilidade de conclusão.
 
+## 1.1 Estado atual
+
+O backlog original foi executado ate o ponto de um MVP de portfolio concluido. O sistema esta pronto para demonstracao local ponta a ponta. A publicacao em nuvem permanece como extensao opcional, nao como bloqueador de encerramento do projeto.
+
 ## 2. Estratégia de Implementação
 
 A implementação será conduzida em camadas, começando pela base estrutural do projeto, seguida pelas funcionalidades centrais do MVP e, por fim, pelos elementos de qualidade, testes e publicação.
@@ -213,7 +217,7 @@ Validar os fluxos críticos do sistema.
 Publicar o sistema e torná-lo monitorável em nível básico.
 
 ### Entregáveis
-- aplicação publicada
+- artefatos de publicacao preparados e validados
 - logs estruturados
 - endpoint healthcheck funcional
 
@@ -309,7 +313,7 @@ Uma fase só deve ser considerada concluída quando atender aos critérios abaix
 - pagamentos
 - dashboard
 - testes centrais
-- deploy inicial
+- deploy inicial opcional
 
 ## 8. Riscos de Execução
 

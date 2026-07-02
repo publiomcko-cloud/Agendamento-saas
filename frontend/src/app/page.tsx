@@ -9,8 +9,8 @@ import { formatRoleLabel } from "@/lib/utils";
 export default function LoginPage() {
   const { initialized, user, login } = useAuth();
   const router = useRouter();
-  const [email, setEmail] = useState("admin@example.com");
-  const [password, setPassword] = useState("Admin@123456");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
 
@@ -83,14 +83,14 @@ export default function LoginPage() {
         <section className="rounded-[36px] border border-[var(--color-border)] bg-white/95 p-6 shadow-2xl backdrop-blur md:p-8">
           <div>
             <p className="text-xs uppercase tracking-[0.22em] text-[var(--color-muted)]">
-              Acesso
+              Demonstracao
             </p>
             <h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-semibold tracking-tight text-[var(--color-ink)]">
-              Entrar na plataforma
+              Acessar a plataforma
             </h2>
             <p className="mt-2 text-sm leading-6 text-[var(--color-muted)]">
-              Use um dos usuarios seeded do ambiente local para navegar pelos
-              fluxos ja implementados.
+              Este portfolio inclui contas de demonstracao para navegar pelos
+              fluxos principais sem criar um cadastro novo.
             </p>
           </div>
 
@@ -100,14 +100,14 @@ export default function LoginPage() {
               type="email"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-              placeholder="voce@empresa.com"
+              placeholder="Selecione uma conta demo ou digite seu e-mail"
             />
             <Input
               label="Senha"
               type="password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
-              placeholder="Sua senha"
+              placeholder="Selecione uma conta demo ou digite sua senha"
             />
 
             {error ? (
@@ -123,16 +123,41 @@ export default function LoginPage() {
 
           <div className="mt-8 rounded-[28px] border border-[var(--color-border)] bg-[var(--color-panel)] p-4">
             <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-muted)]">
-              Credenciais locais
+              Contas de demonstracao
             </p>
             <div className="mt-3 space-y-3 text-sm text-[var(--color-ink)]">
               {[
-                ["admin@example.com", "Admin@123456", "admin"],
-                ["attendant@example.com", "Attendant@123456", "attendant"],
-                ["client@example.com", "Client@123456", "client"],
-              ].map(([userEmail, userPassword, role]) => (
+                {
+                  email: "admin@example.com",
+                  password: "Admin@123456",
+                  role: "admin",
+                  title: "Demo admin",
+                  description: "Acesso completo aos modulos administrativos.",
+                },
+                {
+                  email: "attendant@example.com",
+                  password: "Attendant@123456",
+                  role: "attendant",
+                  title: "Demo atendente",
+                  description: "Agenda operacional, clientes e pagamentos.",
+                },
+                {
+                  email: "client@example.com",
+                  password: "Client@123456",
+                  role: "client",
+                  title: "Demo cliente",
+                  description: "Meus agendamentos e novo agendamento.",
+                },
+              ].map(
+                ({
+                  email: userEmail,
+                  password: userPassword,
+                  role,
+                  title,
+                  description,
+                }) => (
                 <button
-                  key={userEmail}
+                  key={title}
                   type="button"
                   onClick={() => {
                     setEmail(userEmail);
@@ -141,17 +166,22 @@ export default function LoginPage() {
                   className="flex w-full items-center justify-between rounded-2xl border border-transparent bg-white px-4 py-3 text-left transition hover:border-[var(--color-border)]"
                 >
                   <div>
-                    <p className="font-medium">{userEmail}</p>
+                    <p className="font-medium">{title}</p>
                     <p className="text-xs text-[var(--color-muted)]">
-                      {formatRoleLabel(role)}
+                      {formatRoleLabel(role)} · {description}
                     </p>
                   </div>
                   <span className="text-xs text-[var(--color-muted)]">
-                    {userPassword}
+                    Preencher
                   </span>
                 </button>
-              ))}
+                ),
+              )}
             </div>
+            <p className="mt-3 text-xs leading-5 text-[var(--color-muted)]">
+              As contas acima sao populadas pelo seed local e tambem podem ser
+              usadas em uma publicacao de portfolio como demo guiada.
+            </p>
           </div>
         </section>
       </div>

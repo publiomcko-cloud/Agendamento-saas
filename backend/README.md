@@ -1,6 +1,6 @@
 # Backend
 
-API NestJS do sistema de agendamento e gestao para pequenas empresas.
+API NestJS do sistema de agendamento e gestao para pequenas empresas, concluida como parte do MVP de portfolio.
 
 ## Stack
 
@@ -39,10 +39,13 @@ Exemplo:
 
 ```env
 PORT=3333
-DATABASE_URL=postgresql://postgres:postgres@localhost:5432/agendamento_db?schema=public
+DATABASE_URL=postgresql://postgres:postgres@localhost:5434/agendamento_db?schema=public
 JWT_SECRET=change-me
 JWT_EXPIRES_IN=1d
 ```
+
+Observacao:
+o projeto usa `5434` por padrao nos exemplos atuais para evitar conflito com outras stacks locais que ja ocupam `5432`.
 
 ## Instalar dependencias
 
@@ -160,4 +163,4 @@ npm run build
 
 O backend possui `Dockerfile` proprio em [backend/Dockerfile](/home/publio/projetos/agendamento-saas/backend/Dockerfile:1).
 
-Para o passo a passo de publicacao, consulte [docs/deploy_inicial_projeto_ancora_1.md](/home/publio/projetos/agendamento-saas/docs/deploy_inicial_projeto_ancora_1.md:1).
+Para o objetivo atual de portfolio, o backend ja esta concluido para uso local e demonstracao. Para publicacao opcional, consulte [docs/deploy_inicial_projeto_ancora_1.md](/home/publio/projetos/agendamento-saas/docs/deploy_inicial_projeto_ancora_1.md:1).

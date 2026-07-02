@@ -1,4 +1,4 @@
-# README do Projeto Ancora 1
+# Projeto Ancora 1
 
 ## Objetivo
 
@@ -6,7 +6,7 @@ Este documento resume o estado atual do Sistema Web de Agendamento e Gestao para
 
 ## Estado atual
 
-O projeto ja possui MVP funcional localmente, com backend e frontend integrados.
+O projeto esta concluido como MVP de portfolio, com backend e frontend integrados e prontos para demonstracao local.
 
 Implementado:
 
@@ -22,7 +22,7 @@ Implementado:
 - Swagger
 - logs estruturados
 - filtro global de excecoes
-- artefatos de deploy inicial
+- artefatos de deploy inicial preparados para publicacao futura, se desejado
 
 ## Principais funcionalidades
 
@@ -155,6 +155,9 @@ Implementado:
 docker compose up -d
 ```
 
+Observacao:
+o `.env.example` da raiz usa `POSTGRES_PORT=5434` por padrao para evitar conflito com outras stacks locais.
+
 ### Backend
 
 ```bash
@@ -181,6 +184,8 @@ npm run dev
 - swagger: `http://localhost:3333/api`
 - healthcheck: `http://localhost:3333/api/health`
 
+Se a porta `3000` estiver ocupada, o frontend pode subir em `http://localhost:3001`.
+
 ## Credenciais locais
 
 - `admin@example.com` / `Admin@123456`
@@ -200,3 +205,5 @@ O backend inclui:
 ## Deploy
 
 O projeto possui artefatos iniciais de publicacao e um guia especifico em [docs/deploy_inicial_projeto_ancora_1.md](/home/publio/projetos/agendamento-saas/docs/deploy_inicial_projeto_ancora_1.md:1).
+
+Para o objetivo atual, a entrega ja e considerada concluida sem URL publica obrigatoria. A publicacao em nuvem fica como extensao opcional do portfolio.

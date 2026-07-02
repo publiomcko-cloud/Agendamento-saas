@@ -2,7 +2,7 @@
 
 ## 1. Visão Geral
 
-Este documento descreve a arquitetura proposta para o Sistema Web de Agendamento e Gestão para Pequenas Empresas. O objetivo é definir a organização técnica da solução, os principais componentes, os fluxos centrais e as decisões estruturais que orientarão o desenvolvimento.
+Este documento descreve a arquitetura atual do Sistema Web de Agendamento e Gestão para Pequenas Empresas. O objetivo é registrar a organização técnica da solução, os principais componentes, os fluxos centrais e as decisões estruturais adotadas no MVP.
 
 A aplicação foi concebida como um sistema full-stack com separação entre frontend, backend e banco de dados, priorizando simplicidade operacional, clareza arquitetural e aderência a práticas comuns de mercado.
 
@@ -37,7 +37,7 @@ Fluxo geral:
 
 Responsável pela interface do usuário, navegação, formulários e consumo da API.
 
-Tecnologias previstas:
+Tecnologias adotadas:
 - React
 - Next.js
 - TypeScript
@@ -54,7 +54,7 @@ Responsabilidades:
 
 Responsável pela autenticação, regras de negócio, validação, controle de acesso e integração com o banco.
 
-Tecnologias previstas:
+Tecnologias adotadas:
 - Node.js
 - TypeScript
 - NestJS
@@ -74,7 +74,7 @@ Responsabilidades:
 
 Responsável pelo armazenamento persistente e estruturado das informações do sistema.
 
-Tecnologia prevista:
+Tecnologia adotada:
 - PostgreSQL
 
 Responsabilidades:
@@ -105,36 +105,33 @@ Essa separação reduz acoplamento e facilita testes, manutenção e evolução.
 
 ## 6. Organização Modular do Backend
 
-Estrutura sugerida:
+Estrutura atual:
 
 ```text
 src/
-  modules/
-    auth/
-    users/
-    services/
-    clients/
-    appointments/
-    payments/
-    dashboard/
+  auth/
+  users/
+  services/
+  clients/
+  appointments/
+  payments/
+  dashboard/
   common/
     guards/
     decorators/
     filters/
     interceptors/
-    pipes/
-  config/
   prisma/
+  app.module.ts
   main.ts
 ```
 
-### Módulos previstos
+### Módulos implementados
 
 #### Auth
 - login
-- registro
 - geração e validação de JWT
-- recuperação de sessão
+- validação do usuário autenticado em rotas protegidas
 
 #### Users
 - cadastro
@@ -183,14 +180,14 @@ Fluxo esperado:
 
 ### Autorização
 
-A autorização será baseada em papéis de usuário.
+A autorização é baseada em papéis de usuário.
 
-Perfis previstos:
+Perfis implementados:
 - admin
 - atendente
 - cliente
 
-Cada endpoint protegido poderá exigir um ou mais perfis. O backend aplicará guards para verificar permissões antes de executar a lógica de negócio.
+Cada endpoint protegido pode exigir um ou mais perfis. O backend aplica guards para verificar permissões antes de executar a lógica de negócio.
 
 ## 8. Fluxo Principal de Agendamento
 
@@ -219,7 +216,7 @@ Representa contas de acesso ao sistema.
 Representa serviços oferecidos pela empresa.
 
 ### Client
-Representa a pessoa atendida pelo negócio, quando for tratado separadamente do usuário autenticado.
+Representa a pessoa atendida pelo negócio e pode, opcionalmente, estar vinculada a uma conta de acesso.
 
 ### Appointment
 Representa reservas de horário.
@@ -239,7 +236,7 @@ Entidade opcional para futura evolução multi-tenant.
 
 ### Backend para banco
 - acesso via Prisma ORM
-- queries encapsuladas em serviços e repositórios conforme necessidade
+- queries encapsuladas nos serviços de cada módulo
 
 ### Backend para observabilidade
 - logs estruturados
@@ -269,9 +266,9 @@ Exemplos:
 
 ## 12. Estratégia de Tratamento de Erros
 
-O backend deve padronizar respostas de erro para melhorar rastreabilidade e previsibilidade de consumo.
+O backend padroniza respostas de erro para melhorar rastreabilidade e previsibilidade de consumo.
 
-Padrões esperados:
+Padrões adotados:
 - mensagens coerentes para erros de validação
 - códigos HTTP adequados
 - tratamento global de exceções
@@ -279,14 +276,14 @@ Padrões esperados:
 
 ## 13. Observabilidade Básica
 
-Para este projeto, a observabilidade mínima inclui:
+Para este projeto, a observabilidade implementada inclui:
 
 - logs estruturados em JSON
 - identificação de requisições relevantes
 - registro de erros
-- endpoint `GET /health`
+- endpoint `GET /api/health`
 
-Objetivo:
+Objetivos:
 - facilitar depuração
 - demonstrar maturidade técnica
 - viabilizar uso em ambiente de demonstração ou MVP real
@@ -312,6 +309,7 @@ Hospedagem sugerida:
 - build reproduzível
 - migrações aplicáveis
 - healthcheck funcional
+- Dockerfiles para frontend e backend
 
 ## 15. Decisões Técnicas e Justificativas
 
@@ -356,6 +354,6 @@ Pontos que exigem atenção durante a implementação:
 
 ## 18. Conclusão
 
-A arquitetura proposta busca equilíbrio entre simplicidade, clareza e aderência a práticas reais de desenvolvimento. Ela é adequada para um projeto de portfólio com aparência profissional e também para servir como base de um produto inicial comercializável.
+A arquitetura atual busca equilíbrio entre simplicidade, clareza e aderência a práticas reais de desenvolvimento. Ela é adequada para um projeto de portfólio com aparência profissional e também para servir como base de um produto inicial comercializável.
 
 Seu foco principal é demonstrar capacidade de construção de um sistema web completo, com autenticação, domínio de regras de negócio, persistência consistente, documentação, testes e deploy.

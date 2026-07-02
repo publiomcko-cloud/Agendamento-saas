@@ -1,6 +1,6 @@
 # Frontend
 
-Aplicacao Next.js do sistema de agendamento e gestao.
+Aplicacao Next.js do sistema de agendamento e gestao, concluida como parte do MVP de portfolio.
 
 ## Stack
 
@@ -21,6 +21,7 @@ Aplicacao Next.js do sistema de agendamento e gestao.
 - modulo de pagamentos
 - area do cliente com meus agendamentos
 - novo agendamento para cliente
+- pagina de conta para consulta basica do usuario autenticado
 
 ## Requisitos
 
@@ -57,13 +58,18 @@ Endereco padrao:
 http://localhost:3000
 ```
 
+Observacao:
+se a porta `3000` estiver ocupada, o Next.js pode iniciar em `3001`.
+
 ## Fluxo de acesso local
 
-Credenciais seed:
+Contas de demonstracao:
 
 - `admin@example.com` / `Admin@123456`
 - `attendant@example.com` / `Attendant@123456`
 - `client@example.com` / `Client@123456`
+
+Essas contas sao criadas pelo seed local e servem para demonstracao guiada dos perfis no portfolio.
 
 Perfis:
 
@@ -85,6 +91,12 @@ Lint:
 npm run lint
 ```
 
+Testes:
+
+```bash
+npm run test
+```
+
 Build:
 
 ```bash
@@ -101,4 +113,4 @@ npm run start
 
 O frontend esta configurado com `output: standalone` em [frontend/next.config.ts](/home/publio/projetos/agendamento-saas/frontend/next.config.ts:1) e possui `Dockerfile` proprio em [frontend/Dockerfile](/home/publio/projetos/agendamento-saas/frontend/Dockerfile:1).
 
-Para o passo a passo de publicacao, consulte [docs/deploy_inicial_projeto_ancora_1.md](/home/publio/projetos/agendamento-saas/docs/deploy_inicial_projeto_ancora_1.md:1).
+Para o objetivo atual de portfolio, o frontend ja esta concluido para demonstracao local. Para publicacao opcional, consulte [docs/deploy_inicial_projeto_ancora_1.md](/home/publio/projetos/agendamento-saas/docs/deploy_inicial_projeto_ancora_1.md:1).

@@ -3,11 +3,12 @@
 import {
   createContext,
   useContext,
+  useEffect,
   useMemo,
   useState,
   type ReactNode,
 } from "react";
-import { apiRequest } from "@/lib/api";
+import { ApiError, apiRequest } from "@/lib/api";
 import {
   clearStoredSession,
   loadStoredSession,
@@ -26,13 +27,66 @@ type AuthContextValue = {
 const AuthContext = createContext<AuthContextValue | null>(null);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [session, setSession] = useState<AuthResponse | null>(() =>
-    loadStoredSession(),
-  );
+  const [session, setSession] = useState<AuthResponse | null>(null);
+  const [initialized, setInitialized] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function initializeSession() {
+      const storedSession = loadStoredSession();
+
+      if (!storedSession?.accessToken) {
+        if (!cancelled) {
+          setSession(null);
+          setInitialized(true);
+        }
+        return;
+      }
+
+      try {
+        const user = await apiRequest<AuthUser>("/users/me", {
+          token: storedSession.accessToken,
+        });
+
+        if (cancelled) {
+          return;
+        }
+
+        const hydratedSession = {
+          accessToken: storedSession.accessToken,
+          user,
+        } satisfies AuthResponse;
+
+        setSession(hydratedSession);
+        storeSession(hydratedSession);
+      } catch (error) {
+        if (cancelled) {
+          return;
+        }
+
+        setSession(null);
+
+        if (error instanceof ApiError && error.status === 401) {
+          clearStoredSession();
+        }
+      } finally {
+        if (!cancelled) {
+          setInitialized(true);
+        }
+      }
+    }
+
+    void initializeSession();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const value = useMemo<AuthContextValue>(
     () => ({
-      initialized: true,
+      initialized,
       token: session?.accessToken ?? null,
       user: session?.user ?? null,
       async login(email: string, password: string) {
@@ -51,7 +105,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         clearStoredSession();
       },
     }),
-    [session],
+    [initialized, session],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

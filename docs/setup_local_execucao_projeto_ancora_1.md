@@ -248,7 +248,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: agendamento_db
     ports:
-      - "5432:5432"
+      - "${POSTGRES_PORT:-5434}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
@@ -279,7 +279,7 @@ O `docker ps` deve mostrar um container PostgreSQL em execução.
 A partir daqui o banco já deve estar disponível em:
 
 - host: localhost
-- porta: 5432
+- porta: 5434
 - usuário: postgres
 - senha: postgres
 - banco: agendamento_db
@@ -327,6 +327,7 @@ A página padrão do Next.js deve aparecer.
 
 ### Observação
 Deixar esse terminal aberto enquanto o frontend estiver rodando.
+Se a porta `3000` estiver ocupada, o Next.js pode abrir em `3001`.
 
 ## 16. Etapa 13. Criar o backend com NestJS
 
@@ -442,7 +443,7 @@ No VS Code
 ### Definir:
 
 ```env
-DATABASE_URL="postgresql://postgres:postgres@localhost:5432/agendamento_db?schema=public"
+DATABASE_URL="postgresql://postgres:postgres@localhost:5434/agendamento_db?schema=public"
 ```
 
 ### Validação
@@ -612,6 +613,8 @@ No navegador:
 - frontend: `http://localhost:3000`
 - backend: `http://localhost:3333`
 
+Se a porta `3000` estiver ocupada, usar a porta alternativa informada pelo Next.js, normalmente `3001`.
+
 ## 28. Etapa 25. Comandos importantes do dia a dia
 
 ### Conferir em que pasta você está
@@ -701,7 +704,7 @@ Revisar integração do Docker Desktop com o WSL.
 
 ### Erro 5. Porta já em uso
 Confirmar que:
-- frontend usa 3000
+- frontend usa 3000 por padrao
 - backend usa 3333
 
 ## 30. Checklist final de validação
@@ -713,7 +716,7 @@ Ao concluir o setup, confirmar:
 - Docker funcionando
 - projeto salvo dentro do WSL
 - banco PostgreSQL rodando
-- frontend rodando em `localhost:3000`
+- frontend rodando em `localhost:3000` ou `localhost:3001`
 - backend rodando em `localhost:3333`
 - Prisma conectado ao banco
 - Git inicializado

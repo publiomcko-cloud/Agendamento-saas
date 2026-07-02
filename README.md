@@ -1,10 +1,10 @@
 # Sistema Web de Agendamento e Gestao para Pequenas Empresas
 
-Aplicacao full-stack para gestao de agenda, clientes, servicos e pagamentos, pensada como projeto de portfolio com fluxo ponta a ponta.
+Aplicacao full-stack para gestao de agenda, clientes, servicos e pagamentos, concluida como MVP de portfolio com fluxo ponta a ponta.
 
 ## Status
 
-MVP funcional localmente.
+MVP de portfolio concluido, com build, lint e testes validados localmente.
 
 Ja implementado:
 
@@ -24,7 +24,7 @@ Ja implementado:
 - filtro global de excecoes
 - seed de desenvolvimento
 - testes criticos de backend
-- artefatos iniciais de deploy
+- artefatos de deploy inicial prontos para publicacao futura, se desejado
 
 ## Stack
 
@@ -61,8 +61,7 @@ Ja implementado:
 ├── frontend
 ├── docs
 ├── docker-compose.yml
-├── docker-compose.prod.yml
-└── to-do.md
+└── docker-compose.prod.yml
 ```
 
 ## Como rodar localmente
@@ -128,11 +127,16 @@ Frontend local:
 http://localhost:3000
 ```
 
-## Credenciais seed de desenvolvimento
+Observacao:
+se a porta `3000` estiver ocupada, o Next.js pode subir em `3001` automaticamente.
+
+## Contas de demonstracao local
 
 - `admin@example.com` / `Admin@123456`
 - `attendant@example.com` / `Attendant@123456`
 - `client@example.com` / `Client@123456`
+
+Essas contas sao criadas pelo seed local e podem ser usadas para demonstrar os fluxos principais no portfolio.
 
 ## Funcionalidades por perfil
 
@@ -257,9 +261,11 @@ Guia de publicacao:
 
 - [docs/deploy_inicial_projeto_ancora_1.md](/home/publio/projetos/agendamento-saas/docs/deploy_inicial_projeto_ancora_1.md:1)
 
+Para o objetivo atual do projeto, o MVP ja e considerado concluido sem necessidade de URL publica. A publicacao em nuvem fica como extensao opcional.
+
 ## Documentacao complementar
 
-- [docs/diagrama_classes_mermaid.md](/home/publio/projetos/agendamento-saas/docs/diagrama_classes_mermaid.md:1)
+- [docs/diagrama_classes_mermaid.html](/home/publio/projetos/agendamento-saas/docs/diagrama_classes_mermaid.html:1)
 - [docs/instrucoes_para_agente.md](/home/publio/projetos/agendamento-saas/docs/instrucoes_para_agente.md:1)
 - [docs/README_projeto_ancora_1.md](/home/publio/projetos/agendamento-saas/docs/README_projeto_ancora_1.md:1)
 - [docs/deploy_inicial_projeto_ancora_1.md](/home/publio/projetos/agendamento-saas/docs/deploy_inicial_projeto_ancora_1.md:1)

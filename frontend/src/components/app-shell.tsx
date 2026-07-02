@@ -14,6 +14,7 @@ const adminNavigation = [
   { href: "/services", label: "Servicos" },
   { href: "/appointments", label: "Agendamentos" },
   { href: "/payments", label: "Pagamentos" },
+  { href: "/account", label: "Conta" },
 ];
 
 const attendantNavigation = [
@@ -22,17 +23,24 @@ const attendantNavigation = [
   { href: "/services", label: "Servicos" },
   { href: "/appointments", label: "Agendamentos" },
   { href: "/payments", label: "Pagamentos" },
+  { href: "/account", label: "Conta" },
 ];
 
 const clientNavigation = [
   { href: "/my-appointments", label: "Meus agendamentos" },
   { href: "/book-appointment", label: "Novo agendamento" },
+  { href: "/account", label: "Conta" },
 ];
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const { initialized, user, logout } = useAuth();
   const pathname = usePathname();
   const router = useRouter();
+
+  function handleSignOut() {
+    logout();
+    router.replace("/");
+  }
 
   useEffect(() => {
     if (!initialized) {
@@ -75,73 +83,84 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-[var(--color-cream)]">
-      <div className="mx-auto flex min-h-screen max-w-7xl flex-col gap-4 px-4 py-4 lg:flex-row lg:px-6">
-        <aside className="w-full rounded-[32px] border border-[var(--color-border)] bg-[linear-gradient(180deg,#0f2a2e_0%,#173b42_100%)] p-6 text-white shadow-xl lg:sticky lg:top-4 lg:h-[calc(100vh-2rem)] lg:w-80">
-          <div className="space-y-2">
-            <p className="text-xs uppercase tracking-[0.24em] text-white/60">
-              Agendamento SaaS
-            </p>
-            <h1 className="text-2xl font-semibold tracking-tight">
-              Operacao em tempo real
-            </h1>
-            <p className="text-sm leading-6 text-white/70">
-              Acesso rapido aos modulos principais do MVP.
-            </p>
+      <div className="mx-auto max-w-7xl px-4 py-4 lg:px-6">
+        <div className="rounded-[32px] border border-[var(--color-border)] bg-[linear-gradient(180deg,#0f2a2e_0%,#173b42_100%)] p-5 text-white shadow-xl md:p-6">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-stretch lg:justify-between">
+            <div className="space-y-1.5">
+              <p className="text-xs uppercase tracking-[0.24em] text-white/60">
+                Agendamento SaaS
+              </p>
+              <h1 className="text-xl font-semibold tracking-tight md:text-2xl">
+                Operacao em tempo real
+              </h1>
+              <p className="max-w-2xl text-sm leading-5 text-white/70">
+                Acesso rapido aos modulos principais do MVP.
+              </p>
+            </div>
+
+            <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-[210px_180px]">
+              <div className="rounded-3xl border border-white/10 bg-white/5 px-4 py-3">
+                <p className="text-xs uppercase tracking-[0.2em] text-white/55">
+                  Sessao ativa
+                </p>
+                <p className="mt-1.5 text-base font-medium">{user.email}</p>
+                <p className="text-sm text-white/70">{formatRoleLabel(user.role)}</p>
+                <div className="mt-3 flex justify-center">
+                  <button
+                    type="button"
+                    onClick={handleSignOut}
+                    className="rounded-xl border border-white/12 px-4 py-2 text-xs font-medium text-white/85 transition hover:bg-white/8"
+                  >
+                    Sair
+                  </button>
+                </div>
+              </div>
+
+              <div className="rounded-3xl border border-white/10 bg-[#f4c95d] px-4 py-3.5 text-[var(--color-ink)]">
+                <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-ink)]/65">
+                  Perfil
+                </p>
+                <p className="mt-1.5 text-sm leading-5">
+                  {getRoleMessage(user.role)}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-5">
+          <div className="overflow-x-auto pb-2">
+            <nav
+              className="grid min-w-max gap-2"
+              style={{
+                gridTemplateColumns: `repeat(${navigation.length}, minmax(112px, 1fr))`,
+              }}
+            >
+              {navigation.map((item) => {
+                const isActive = pathname === item.href;
+
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={classNames(
+                      "relative rounded-t-[22px] border px-4 py-3 text-center text-sm font-medium transition",
+                      isActive
+                        ? "z-10 -mb-px border-[var(--color-border)] border-b-white bg-white text-[var(--color-ink)] shadow-[0_-8px_24px_rgba(10,31,38,0.06)]"
+                        : "border-[#d7cfbf] bg-[linear-gradient(180deg,#fbf5e8_0%,#f2e7cf_100%)] text-[var(--color-muted)] hover:bg-[#f7eedc] hover:text-[var(--color-ink)]",
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </nav>
           </div>
 
-          <div className="mt-8 rounded-3xl border border-white/10 bg-white/5 p-4">
-            <p className="text-xs uppercase tracking-[0.2em] text-white/55">
-              Sessao ativa
-            </p>
-            <p className="mt-2 text-lg font-medium">{user.email}</p>
-            <p className="text-sm text-white/70">{formatRoleLabel(user.role)}</p>
-          </div>
-
-          <nav className="mt-8 flex flex-col gap-2">
-            {navigation.map((item) => {
-              const isActive = pathname === item.href;
-
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={classNames(
-                    "rounded-2xl px-4 py-3 text-sm transition",
-                    isActive
-                      ? "bg-[var(--color-accent)] text-[var(--color-ink)]"
-                      : "text-white/78 hover:bg-white/8 hover:text-white",
-                  )}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </nav>
-
-          <div className="mt-8 rounded-3xl border border-white/10 bg-[#f4c95d] px-4 py-4 text-[var(--color-ink)]">
-            <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-ink)]/65">
-              Perfil
-            </p>
-            <p className="mt-2 text-sm leading-6">
-              {getRoleMessage(user.role)}
-            </p>
-          </div>
-
-          <button
-            type="button"
-            onClick={() => {
-              logout();
-              router.replace("/");
-            }}
-            className="mt-8 w-full rounded-2xl border border-white/12 px-4 py-3 text-sm text-white/85 transition hover:bg-white/8"
-          >
-            Sair
-          </button>
-        </aside>
-
-        <main className="flex-1 rounded-[32px] border border-[var(--color-border)] bg-white p-5 shadow-xl shadow-[rgba(10,31,38,0.07)] md:p-8">
-          {children}
-        </main>
+          <main className="relative -mt-[1px] rounded-b-[32px] rounded-t-none border border-[var(--color-border)] bg-white p-5 shadow-xl shadow-[rgba(10,31,38,0.07)] md:p-8">
+            {children}
+          </main>
+        </div>
       </div>
     </div>
   );

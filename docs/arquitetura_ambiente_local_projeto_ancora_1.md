@@ -209,6 +209,9 @@ Exemplo de acesso:
 - Swagger em `http://localhost:3333/api`
 - Prisma Studio em `http://localhost:5555`
 
+Observacao:
+no ambiente atual do projeto, o frontend pode subir em `3001` se `3000` estiver ocupada.
+
 ## 7. Estrutura de Pastas Recomendada
 
 Estrutura local sugerida:
@@ -372,7 +375,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: agendamento_db
     ports:
-      - "5432:5432"
+      - "${POSTGRES_PORT:-5434}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
@@ -449,7 +452,7 @@ Depois editar `.env` com a conexão do banco.
 Exemplo:
 
 ```env
-DATABASE_URL="postgresql://postgres:postgres@localhost:5432/agendamento_db?schema=public"
+DATABASE_URL="postgresql://postgres:postgres@localhost:5434/agendamento_db?schema=public"
 ```
 
 Comandos principais do Prisma, executados em `backend`:
@@ -494,7 +497,7 @@ Sugestão:
 
 - frontend: 3000
 - backend: 3333
-- postgres: 5432
+- postgres: 5434
 - prisma studio: 5555
 
 ## 14. Fluxo Diário de Trabalho
@@ -531,6 +534,8 @@ Abrir:
 - `http://localhost:3000`
 - `http://localhost:3333`
 - `http://localhost:3333/api`, se Swagger estiver ativo
+
+Se `3000` estiver ocupada, o frontend pode iniciar em `3001`.
 
 ## 14.2 Durante o desenvolvimento
 
@@ -683,7 +688,7 @@ Resumo final da recomendação:
 - frontend Next.js local
 - backend NestJS local
 - Git e comandos operacionais no terminal do Ubuntu
-- deploy em nuvem apenas depois do MVP funcional
+- deploy em nuvem como extensao opcional apos a conclusao do MVP de portfolio
 
 ## 20. Conclusão
 
