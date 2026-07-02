@@ -135,6 +135,7 @@ Planned capture set:
 - Docker
 - Docker Compose
 - production Dockerfiles for frontend and backend
+- Vercel project config for the frontend
 
 ## Architecture
 

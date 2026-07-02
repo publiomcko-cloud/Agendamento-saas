@@ -128,6 +128,21 @@ Se o healthcheck falhar:
    - `NEXT_PUBLIC_API_URL=https://seu-backend.onrender.com/api`
 5. Execute o deploy.
 
+Configuracao esperada:
+
+- `Framework Preset`: Next.js
+- `Root Directory`: `frontend`
+- `Build Command`: padrao da Vercel para Next.js
+- `Output Directory`: vazio ou padrao do Next.js
+
+O repositorio inclui [frontend/vercel.json](/home/publio/projetos/agendamento-saas/frontend/vercel.json:1) para forcar o builder correto da Vercel. Se o deploy aparecer como `Ready`, mas a URL retornar `404: NOT_FOUND`, confira se:
+
+- `Root Directory` esta como `frontend`
+- o commit com `frontend/vercel.json` foi enviado para o GitHub
+- o projeto nao esta usando `Output Directory` manual como `public`, `.`, `out` ou `.next`
+- a Vercel detectou Next.js nos logs de build
+- Deployment Protection ou Vercel Authentication nao esta bloqueando a demo publica
+
 ### 6. Atualizar CORS no Render
 
 Depois que a Vercel gerar a URL final, volte ao Render e defina:
