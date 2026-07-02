@@ -294,6 +294,7 @@ DATABASE_URL=postgresql://postgres:postgres@localhost:5434/agendamento_db?schema
 JWT_SECRET=change-me
 JWT_EXPIRES_IN=1d
 CORS_ORIGINS=http://localhost:3000,http://localhost:3001
+DATABASE_SSL_REJECT_UNAUTHORIZED=true
 ```
 
 ```env

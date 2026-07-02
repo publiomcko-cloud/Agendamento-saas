@@ -50,12 +50,14 @@ DATABASE_URL=postgresql://postgres.[PROJECT_REF]:[PASSWORD]@[HOST]:5432/postgres
 JWT_SECRET=defina-um-segredo-forte-e-longo
 JWT_EXPIRES_IN=1d
 CORS_ORIGINS=https://seu-frontend.vercel.app
+DATABASE_SSL_REJECT_UNAUTHORIZED=false
 ```
 
 Observacao:
 
 - no Supabase, use a string de conexao pooling ou direct connection conforme sua conta permitir
 - mantenha `sslmode=require`
+- no Render, mantenha `DATABASE_SSL_REJECT_UNAUTHORIZED=false` para evitar falha de certificado com o driver `pg` no demo publico
 - depois que a URL final da Vercel existir, atualize `CORS_ORIGINS` no Render
 
 ### Frontend na Vercel
@@ -90,6 +92,7 @@ Opcao recomendada: usar o `render.yaml` da raiz do repositorio.
    - `DATABASE_URL`
    - `JWT_SECRET`
    - `CORS_ORIGINS`
+   - `DATABASE_SSL_REJECT_UNAUTHORIZED=false`
 8. Execute o deploy.
 
 Importante:
