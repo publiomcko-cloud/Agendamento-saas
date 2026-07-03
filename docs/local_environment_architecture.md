@@ -2,7 +2,7 @@
 
 ## 1. Objetivo
 
-Este documento define a arquitetura recomendada do ambiente local de desenvolvimento para o Projeto Âncora 1, um sistema web full-stack de agendamento e gestão para pequenas empresas.
+Este documento define a arquitetura recomendada do ambiente local de desenvolvimento para o Projeto Âncora 3 — Agendamento SaaS, um sistema web full-stack de agendamento e gestão para pequenas empresas.
 
 O foco deste documento é estabelecer, de forma prática e operacional:
 

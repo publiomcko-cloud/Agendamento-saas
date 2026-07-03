@@ -1,4 +1,4 @@
-# Projeto Ancora 1
+# Projeto Âncora 3 — Agendamento SaaS
 
 ## Objetivo
 
@@ -204,6 +204,6 @@ O backend inclui:
 
 ## Deploy
 
-O projeto possui artefatos de publicacao e um guia especifico em [docs/initial_deployment.md](/home/publio/projetos/agendamento-saas/docs/initial_deployment.md:1).
+O projeto possui artefatos de publicacao e um guia especifico em [docs/initial_deployment.md](../docs/initial_deployment.md).
 
 Para o objetivo atual, a entrega ja e considerada concluida com URL publica, dados sinteticos e video demo publicado.

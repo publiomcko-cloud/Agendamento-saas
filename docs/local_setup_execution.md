@@ -2,7 +2,7 @@
 
 ## 1. Objetivo
 
-Este documento apresenta um roteiro sequencial para preparar o ambiente local de desenvolvimento do Projeto Âncora 1 e executar a base do sistema no computador.
+Este documento apresenta um roteiro sequencial para preparar o ambiente local de desenvolvimento do Projeto Âncora 3 — Agendamento SaaS e executar a base do sistema no computador.
 
 A proposta é permitir que a instalação e a configuração sejam feitas passo a passo, com indicação clara de:
 

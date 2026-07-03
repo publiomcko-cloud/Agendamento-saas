@@ -1,5 +1,7 @@
 # SaaS de Agendamento para Pequenos Negocios
 
+[![CI](https://github.com/publiomcko-cloud/Agendamento-saas/actions/workflows/ci.yml/badge.svg)](https://github.com/publiomcko-cloud/Agendamento-saas/actions/workflows/ci.yml)
+
 Sistema full-stack de agendamento e gestao operacional para pequenos negocios de servicos.
 
 Este projeto e uma demo SaaS-like pronta para portfolio, criada para demonstrar engenharia de produto na pratica, nao apenas telas CRUD isoladas. Ele inclui autenticacao por perfil, gestao de clientes e servicos, agendamentos, acompanhamento de pagamentos e dashboard operacional. O projeto foi pensado para recrutadores, revisores tecnicos e potenciais clientes que querem avaliar a entrega de um software de negocio completo.
@@ -229,20 +231,22 @@ Roteiro recomendado para revisao:
 
 ## Desenvolvimento Local
 
-### 1. Subir o banco
+### 1. Criar arquivos de ambiente locais
 
-A partir da raiz do projeto:
-
-```bash
-docker compose up -d
-```
-
-### 2. Criar arquivos de ambiente locais
+Copie os arquivos de exemplo antes de subir os servicos. O `.env` da raiz define, entre outros valores, `POSTGRES_PORT=5434`, usado pelo `docker-compose.yml` para expor o PostgreSQL local sem conflitar com uma instalacao local na porta padrao `5432`.
 
 ```bash
 cp .env.example .env
 cp backend/.env.example backend/.env
 cp frontend/.env.example frontend/.env.local
+```
+
+### 2. Subir o banco
+
+A partir da raiz do projeto:
+
+```bash
+docker compose up -d
 ```
 
 ### 3. Rodar o backend
@@ -348,6 +352,7 @@ npm run build
 - [Estado atual](docs/current_state.md)
 - [Estudo de caso](docs/case_study.md)
 - [Testes](docs/testing.md)
+- [Changelog](CHANGELOG.md)
 - [Revisao final do MVP](docs/final_mvp_review.md)
 - [Diagrama de classes](docs/class_diagram.html)
 

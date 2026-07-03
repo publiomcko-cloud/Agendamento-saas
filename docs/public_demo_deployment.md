@@ -86,7 +86,7 @@ Opcao recomendada: usar o `render.yaml` da raiz do repositorio.
 2. No Render, clique em `New +`.
 3. Escolha `Blueprint`.
 4. Conecte o repositorio.
-5. O Render deve detectar o arquivo [render.yaml](/home/publio/projetos/agendamento-saas/render.yaml:1).
+5. O Render deve detectar o arquivo [render.yaml](../render.yaml).
 6. Revise o servico `agendamento-saas-api`.
 7. Configure as variaveis:
    - `DATABASE_URL`
@@ -138,7 +138,7 @@ Configuracao esperada:
 - `Build Command`: padrao da Vercel para Next.js
 - `Output Directory`: vazio ou padrao do Next.js
 
-O repositorio inclui [frontend/vercel.json](/home/publio/projetos/agendamento-saas/frontend/vercel.json:1) para forcar o builder correto da Vercel. Se o deploy aparecer como `Ready`, mas a URL retornar `404: NOT_FOUND`, confira se:
+O repositorio inclui [frontend/vercel.json](../frontend/vercel.json) para forcar o builder correto da Vercel. Se o deploy aparecer como `Ready`, mas a URL retornar `404: NOT_FOUND`, confira se:
 
 - `Root Directory` esta como `frontend`
 - o commit com `frontend/vercel.json` foi enviado para o GitHub

@@ -291,18 +291,25 @@ Objetivos:
 ## 14. Estratégia de Deploy
 
 ### Frontend
-Hospedagem sugerida:
+Deploy publico atual:
+
 - Vercel
 
 ### Backend
-Hospedagem sugerida:
-- Railway
+Deploy publico atual:
+
 - Render
-- VPS com Docker
 
 ### Banco
-Hospedagem sugerida:
-- PostgreSQL gerenciado
+Deploy publico atual:
+
+- Supabase PostgreSQL
+
+### Alternativas futuras
+
+- Railway para backend
+- VPS com Docker para backend ou stack completa
+- outro PostgreSQL gerenciado, se houver necessidade operacional
 
 ### Requisitos
 - variáveis de ambiente definidas

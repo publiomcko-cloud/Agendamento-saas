@@ -2,7 +2,7 @@
 
 ## 1. Objetivo deste arquivo
 
-Este documento define como o agente deve conduzir o desenvolvimento do Projeto Âncora 1. Ele existe para reduzir ambiguidades, evitar expansão indevida de escopo e garantir alinhamento entre implementação, documentação e objetivo de portfólio.
+Este documento define como o agente deve conduzir o desenvolvimento do Projeto Âncora 3 — Agendamento SaaS. Ele existe para reduzir ambiguidades, evitar expansão indevida de escopo e garantir alinhamento entre implementação, documentação e objetivo de portfólio.
 
 O agente deve tratar este arquivo como ponto inicial de leitura e como referência operacional durante toda a execução do projeto.
 

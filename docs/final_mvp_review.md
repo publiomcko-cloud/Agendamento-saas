@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Este documento registra a avaliacao final entre a documentacao e o estado atual do codigo do Projeto Ancora 1.
+Este documento registra a avaliacao final entre a documentacao e o estado atual do codigo do Projeto Âncora 3 — Agendamento SaaS.
 
 ## Status final
 
