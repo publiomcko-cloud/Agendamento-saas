@@ -297,7 +297,7 @@ Recomendações:
 
 ## 11. Seed Inicial
 
-A base inicial deve conter dados mínimos para testes e demonstração local.
+A base inicial deve conter dados minimos para testes, demonstracao local e demo publica com dados sinteticos.
 
 Sugestão de seed:
 

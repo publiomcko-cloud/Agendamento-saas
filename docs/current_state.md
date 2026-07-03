@@ -1,110 +1,110 @@
-# Current State
+# Estado Atual
 
-## Summary
+## Resumo
 
-`Scheduling SaaS for Small Businesses` is ready as a public portfolio MVP.
+`Scheduling SaaS for Small Businesses` esta pronto como MVP publico de portfolio.
 
-The project has a deployed frontend, deployed backend, remote PostgreSQL database, synthetic demo data, screenshots, demo video, demo credentials, API documentation, and portfolio-oriented README.
+O projeto possui frontend publicado, backend publicado, banco PostgreSQL remoto, dados sinteticos, screenshots, video demo, credenciais de demonstracao, documentacao da API e README orientado para portfolio.
 
-## Public Demo
+## Demo Publica
 
 - Frontend: https://agendamento-saas-sigma.vercel.app
 - Backend health: https://agendamento-saas-api.onrender.com/api/health
 - API docs: https://agendamento-saas-api.onrender.com/api
-- Demo video: https://youtu.be/TbuewDJhGYs
+- Video demo: https://youtu.be/TbuewDJhGYs
 
-## Demo Users
+## Usuarios Demo
 
 ```text
 Admin
 admin@example.com
 Admin@123456
 
-Attendant
+Atendente
 attendant@example.com
 Attendant@123456
 
-Client
+Cliente
 client@example.com
 Client@123456
 ```
 
-## Deployment Stack
+## Stack de Deploy
 
 ```text
 Browser
-  -> Vercel frontend
-  -> Render backend
-  -> Supabase PostgreSQL
+  -> Frontend na Vercel
+  -> Backend no Render
+  -> PostgreSQL no Supabase
 ```
 
-## Implemented Product Scope
+## Escopo Implementado
 
-- authentication with JWT
-- role-based access for `admin`, `attendant`, and `client`
-- administrative user management
-- client management
-- service management
-- appointment creation, cancellation, and rescheduling
-- appointment conflict prevention in the backend
-- payment registration and status updates
-- operational dashboard
-- client self-service booking flow
-- client area for personal appointments
-- Swagger API documentation
-- healthcheck endpoint
-- structured backend logs
-- global backend error handling
-- seed data for repeatable demos
+- autenticacao com JWT
+- acesso por perfil para `admin`, `attendant` e `client`
+- gestao administrativa de usuarios
+- gestao de clientes
+- gestao de servicos
+- criacao, cancelamento e reagendamento de agendamentos
+- prevencao de conflito de horario no backend
+- registro e atualizacao de pagamentos
+- dashboard operacional
+- fluxo de autoagendamento para cliente
+- area do cliente para acompanhar os proprios agendamentos
+- documentacao Swagger da API
+- endpoint de healthcheck
+- logs estruturados no backend
+- filtro global de erros no backend
+- dados de seed para demos repetiveis
 
-## Demo Data
+## Dados de Demonstracao
 
-The public demo database contains synthetic data only.
+O banco publico usa apenas dados sinteticos.
 
-Seeded demo records include:
+Registros de demo populados:
 
-- 3 demo users
-- 4 clients
-- 4 services
-- 5 appointments
-- 3 payments
+- 3 usuarios demo
+- 4 clientes
+- 4 servicos
+- 5 agendamentos
+- 3 pagamentos
 
-The data covers active, inactive, scheduled, completed, cancelled, paid, pending, and refunded states so reviewers can inspect the main product flows.
+Os dados cobrem estados ativo, inativo, agendado, concluido, cancelado, pago, pendente e estornado para permitir revisao dos principais fluxos.
 
 ## Screenshots
 
-Screenshots are stored in `docs/screenshots/` and are embedded in the README.
+As capturas ficam em `docs/screenshots/` e sao exibidas no README.
 
-Current set:
+Conjunto atual:
 
 - login
 - dashboard
-- users
-- clients
-- services
-- appointments
-- payments
-- client appointments
-- new booking
-- mobile dashboard
+- usuarios
+- clientes
+- servicos
+- agendamentos
+- pagamentos
+- meus agendamentos
+- novo agendamento
+- dashboard em mobile
 
-## Validation Status
+## Validacao
 
-Validated during portfolio preparation:
+Validado durante a preparacao de portfolio:
 
-- backend build
-- backend unit test
-- frontend build
-- Docker backend build for Render
-- backend deployment on Render
-- frontend deployment on Vercel
-- Supabase seed with synthetic data
-- public healthcheck
-- public login flow
-- screenshots captured from public demo
-- demo video recorded from public demo
+- build do backend
+- teste unitario do backend
+- build do frontend
+- build Docker do backend para Render
+- deploy do backend no Render
+- deploy do frontend na Vercel
+- seed no Supabase com dados sinteticos
+- healthcheck publico
+- fluxo de login publico
+- screenshots capturadas da demo publica
+- video demo gravado da demo publica
 
-Recommended validation commands:
+Comandos recomendados:
 
 ```bash
 cd backend
@@ -120,28 +120,28 @@ npm run lint
 npm run build
 ```
 
-## Important Operational Notes
+## Observacoes Operacionais
 
-- Render requires `DATABASE_URL`, `JWT_SECRET`, and `CORS_ORIGINS` as environment variables.
-- Supabase connection currently uses `sslmode=no-verify` for the public demo.
-- Render should keep `DATABASE_SSL_REJECT_UNAUTHORIZED=false`.
-- Vercel requires `NEXT_PUBLIC_API_URL` pointing to the Render backend `/api`.
-- Public demo data must remain synthetic.
+- Render precisa de `DATABASE_URL`, `JWT_SECRET` e `CORS_ORIGINS`.
+- A conexao Supabase da demo publica usa `sslmode=no-verify`.
+- O Render deve manter `DATABASE_SSL_REJECT_UNAUTHORIZED=false`.
+- A Vercel precisa de `NEXT_PUBLIC_API_URL` apontando para o backend Render com `/api`.
+- A demo publica deve continuar usando apenas dados sinteticos.
 
-## Known Limitations
+## Limitacoes Conhecidas
 
-- no automated notifications
-- no payment gateway
-- no multi-tenant model
-- no advanced calendar view
-- no advanced availability rules
+- sem notificacoes automaticas
+- sem gateway de pagamento
+- sem multi-tenant
+- sem calendario visual avancado
+- sem regras avancadas de disponibilidade
 
-## Recommended Next Steps
+## Proximos Passos Opcionais
 
-- add a simple public smoke test script
-- review links before publishing the repo broadly
-- update the demo video after relevant UI changes
+- adicionar smoke test publico simples
+- revisar links antes de divulgar amplamente o repositorio
+- atualizar o video demo apos mudancas relevantes de UI
 
 ## Status
 
-Ready for portfolio review.
+Pronto para revisao de portfolio.

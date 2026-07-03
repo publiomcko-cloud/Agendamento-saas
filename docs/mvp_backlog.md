@@ -6,7 +6,7 @@ Este documento organiza a execução do projeto em fases, épicos, funcionalidad
 
 ## 1.1 Estado atual
 
-O backlog original foi executado ate o ponto de um MVP de portfolio concluido. O sistema esta pronto para demonstracao local ponta a ponta. A publicacao em nuvem permanece como extensao opcional, nao como bloqueador de encerramento do projeto.
+O backlog original foi executado ate o ponto de um MVP de portfolio concluido. O sistema esta pronto para demonstracao local e publica ponta a ponta. A publicacao em nuvem foi realizada; proximas evolucoes sao opcionais e nao bloqueiam o encerramento do MVP.
 
 ## 2. Estratégia de Implementação
 

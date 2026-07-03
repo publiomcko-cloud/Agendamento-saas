@@ -6,7 +6,7 @@ Este documento resume o estado atual do Sistema Web de Agendamento e Gestao para
 
 ## Estado atual
 
-O projeto esta concluido como MVP de portfolio, com backend e frontend integrados e prontos para demonstracao local.
+O projeto esta concluido como MVP de portfolio, com backend e frontend integrados, demo local funcional e demo publica publicada.
 
 Implementado:
 
@@ -22,7 +22,7 @@ Implementado:
 - Swagger
 - logs estruturados
 - filtro global de excecoes
-- artefatos de deploy inicial preparados para publicacao futura, se desejado
+- deploy publico realizado com Vercel, Render e Supabase
 
 ## Principais funcionalidades
 
@@ -204,6 +204,6 @@ O backend inclui:
 
 ## Deploy
 
-O projeto possui artefatos iniciais de publicacao e um guia especifico em [docs/deploy_inicial_projeto_ancora_1.md](/home/publio/projetos/agendamento-saas/docs/deploy_inicial_projeto_ancora_1.md:1).
+O projeto possui artefatos de publicacao e um guia especifico em [docs/initial_deployment.md](/home/publio/projetos/agendamento-saas/docs/initial_deployment.md:1).
 
-Para o objetivo atual, a entrega ja e considerada concluida sem URL publica obrigatoria. A publicacao em nuvem fica como extensao opcional do portfolio.
+Para o objetivo atual, a entrega ja e considerada concluida com URL publica, dados sinteticos e video demo publicado.

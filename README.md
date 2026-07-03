@@ -335,21 +335,21 @@ npm run build
 
 ## Documentation
 
-- [Project overview](docs/README_projeto_ancora_1.md)
-- [MVP scope](docs/escopo_mvp_projeto_ancora_1.md)
-- [Architecture](docs/arquitetura_projeto_ancora_1.md)
-- [Local environment architecture](docs/arquitetura_ambiente_local_projeto_ancora_1.md)
-- [Database modeling](docs/modelagem_banco_projeto_ancora_1.md)
-- [Screen flows](docs/fluxos_telas_projeto_ancora_1.md)
-- [Deployment guide](docs/deploy_inicial_projeto_ancora_1.md)
+- [Project overview](docs/project_overview.md)
+- [MVP scope](docs/mvp_scope.md)
+- [Architecture](docs/architecture.md)
+- [Local environment architecture](docs/local_environment_architecture.md)
+- [Database modeling](docs/database_modeling.md)
+- [Screen flows](docs/screen_flows.md)
+- [Deployment guide](docs/initial_deployment.md)
 - [Public demo deployment](docs/public_demo_deployment.md)
 - [Demo script](docs/demo_script.md)
 - [Portfolio readiness](docs/portfolio_readiness.md)
 - [Current state](docs/current_state.md)
 - [Case study](docs/case_study.md)
 - [Testing](docs/testing.md)
-- [Final MVP review](docs/revisao_final_aderencia_mvp.md)
-- [Class diagram](docs/diagrama_classes_mermaid.html)
+- [Final MVP review](docs/final_mvp_review.md)
+- [Class diagram](docs/class_diagram.html)
 
 ## Demo Safety
 

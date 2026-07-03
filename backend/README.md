@@ -163,4 +163,4 @@ npm run build
 
 O backend possui `Dockerfile` proprio em [backend/Dockerfile](/home/publio/projetos/agendamento-saas/backend/Dockerfile:1).
 
-Para o objetivo atual de portfolio, o backend ja esta concluido para uso local e demonstracao. Para publicacao opcional, consulte [docs/deploy_inicial_projeto_ancora_1.md](/home/publio/projetos/agendamento-saas/docs/deploy_inicial_projeto_ancora_1.md:1).
+Para o objetivo atual de portfolio, o backend ja esta concluido para uso local e demo publica. Para detalhes de publicacao, consulte [docs/initial_deployment.md](/home/publio/projetos/agendamento-saas/docs/initial_deployment.md:1).

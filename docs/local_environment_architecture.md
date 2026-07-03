@@ -24,7 +24,7 @@ A recomendação para este projeto é utilizar uma arquitetura híbrida simples:
 - edição do projeto com VS Code
 - execução de comandos principalmente no terminal do Ubuntu
 - banco de dados local em Docker ou instalação local controlada
-- publicação futura em nuvem apenas após o MVP estar funcional
+- demo publica em nuvem mantida separada do ambiente local
 
 Essa abordagem oferece bom equilíbrio entre:
 
@@ -688,7 +688,7 @@ Resumo final da recomendação:
 - frontend Next.js local
 - backend NestJS local
 - Git e comandos operacionais no terminal do Ubuntu
-- deploy em nuvem como extensao opcional apos a conclusao do MVP de portfolio
+- deploy em nuvem ja publicado como demo de portfolio
 
 ## 20. Conclusão
 

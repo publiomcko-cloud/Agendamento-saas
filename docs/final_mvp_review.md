@@ -10,12 +10,12 @@ O projeto esta concluido como MVP de portfolio.
 
 Isso significa que:
 
-- o fluxo principal funciona ponta a ponta localmente
+- o fluxo principal funciona ponta a ponta localmente e na demo publica
 - backend e frontend estao integrados
 - os modulos centrais previstos no escopo foram implementados
 - os testes criticos do backend foram validados
 - a documentacao principal foi atualizada para refletir o estado atual
-- a publicacao em nuvem e opcional para a proposta atual
+- a publicacao em nuvem foi concluida para a proposta atual de portfolio
 
 ## Escopo confirmado
 
@@ -47,4 +47,4 @@ Itens implementados e aderentes ao MVP:
 
 Para o objetivo de exposicao em portfolio, o projeto deve ser tratado como concluido.
 
-Deploy publico pode ser feito depois, mas nao e mais um requisito para considerar o MVP encerrado.
+Deploy publico ja foi realizado. Melhorias futuras podem incluir smoke test publico, calendario avancado, notificacoes, gateway de pagamento e hardening adicional.

@@ -113,4 +113,4 @@ npm run start
 
 O frontend esta configurado com `output: standalone` em [frontend/next.config.ts](/home/publio/projetos/agendamento-saas/frontend/next.config.ts:1) e possui `Dockerfile` proprio em [frontend/Dockerfile](/home/publio/projetos/agendamento-saas/frontend/Dockerfile:1).
 
-Para o objetivo atual de portfolio, o frontend ja esta concluido para demonstracao local. Para publicacao opcional, consulte [docs/deploy_inicial_projeto_ancora_1.md](/home/publio/projetos/agendamento-saas/docs/deploy_inicial_projeto_ancora_1.md:1).
+Para o objetivo atual de portfolio, o frontend ja esta concluido para demonstracao local e demo publica. Para detalhes de publicacao, consulte [docs/initial_deployment.md](/home/publio/projetos/agendamento-saas/docs/initial_deployment.md:1).

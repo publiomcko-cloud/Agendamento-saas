@@ -25,7 +25,7 @@ A primeira versão precisa provar que o sistema consegue:
 - impedir conflitos básicos de agenda
 - registrar pagamentos
 - oferecer uma visão administrativa inicial
-- rodar localmente de forma confiavel e estar preparado para publicacao, se desejado
+- rodar localmente de forma confiavel e possuir demo publica para avaliacao de portfolio
 
 ## 4. Escopo Funcional Incluído
 
@@ -177,7 +177,7 @@ O MVP será considerado pronto quando atender aos seguintes critérios:
 - testes dos endpoints críticos executando com sucesso
 - API documentada em nível inicial
 - aplicacao executando localmente com demonstracao ponta a ponta
-- artefatos de deploy validados e prontos para publicacao opcional
+- demo publica validada com Vercel, Render e Supabase
 - README atualizado com instruções de execução e links principais
 
 ## 8. Funcionalidades que Devem Esperar
@@ -220,4 +220,4 @@ Esse fluxo deve funcionar ponta a ponta.
 
 ## 11. Conclusão
 
-O escopo do MVP foi definido para equilibrar valor de negócio, viabilidade de entrega e força de portfolio. Para este projeto, a conclusao do MVP e medida principalmente pela demonstracao funcional local e pela consistencia do codigo e da documentacao. A publicacao em nuvem permanece como extensao opcional.
+O escopo do MVP foi definido para equilibrar valor de negocio, viabilidade de entrega e forca de portfolio. Para este projeto, a conclusao do MVP e medida pela demonstracao funcional local, demo publica, consistencia do codigo e documentacao atualizada.

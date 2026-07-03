@@ -1,4 +1,4 @@
-# Portfolio Readiness
+# Prontidao de Portfolio
 
 ## Objetivo
 
@@ -159,10 +159,10 @@ Arquivos principais:
 - `docs/current_state.md`
 - `docs/case_study.md`
 - `docs/testing.md`
-- `docs/revisao_final_aderencia_mvp.md`
-- `docs/arquitetura_projeto_ancora_1.md`
-- `docs/modelagem_banco_projeto_ancora_1.md`
-- `docs/fluxos_telas_projeto_ancora_1.md`
+- `docs/final_mvp_review.md`
+- `docs/architecture.md`
+- `docs/database_modeling.md`
+- `docs/screen_flows.md`
 
 ## 8. Limitacoes conhecidas
 

@@ -1,160 +1,160 @@
-# Case Study
+# Estudo de Caso
 
-## Project
+## Projeto
 
 `Scheduling SaaS for Small Businesses`
 
-## Context
+## Contexto
 
-Small service businesses often manage appointments, customers, services, and payments across disconnected tools: spreadsheets, messaging apps, paper notes, and manual reminders.
+Pequenos negocios de servicos muitas vezes gerenciam agenda, clientes, servicos e pagamentos em ferramentas desconectadas: planilhas, aplicativos de mensagem, anotacoes em papel e lembretes manuais.
 
-This creates operational friction:
+Isso cria atrito operacional:
 
-- staff lose visibility of the day schedule
-- customers depend on manual communication to confirm appointments
-- payments are hard to track against appointments
-- business owners lack a simple operational dashboard
-- customer records and appointment history stay fragmented
+- a equipe perde visibilidade da agenda do dia
+- clientes dependem de comunicacao manual para confirmar horarios
+- pagamentos ficam dificeis de relacionar com agendamentos
+- donos do negocio nao possuem um dashboard operacional simples
+- historico de clientes e atendimentos fica fragmentado
 
-## Goal
+## Objetivo
 
-Build a full-stack portfolio MVP that demonstrates how this workflow can become a usable web system with clear roles, real business rules, persistent data, and public deployment.
+Construir um MVP full-stack de portfolio que demonstre como esse fluxo pode virar um sistema web utilizavel, com perfis claros, regras de negocio reais, dados persistidos e deploy publico.
 
-The project is not intended to be a production SaaS platform. It is a realistic MVP designed to show engineering judgment, product thinking, and end-to-end delivery.
+O projeto nao pretende ser uma plataforma SaaS pronta para producao. Ele e um MVP realista para demonstrar julgamento tecnico, pensamento de produto e entrega ponta a ponta.
 
-## Solution
+## Solucao
 
-The system provides:
+O sistema oferece:
 
-- public login with demo users
-- admin, attendant, and client roles
-- client management
-- service management
-- appointment scheduling
-- conflict prevention in the backend
-- payment tracking
-- dashboard with operational visibility
-- client self-service booking
-- public demo deployment
+- login publico com usuarios demo
+- perfis de admin, atendente e cliente
+- gestao de clientes
+- gestao de servicos
+- agendamento de atendimentos
+- prevencao de conflito de horario no backend
+- acompanhamento de pagamentos
+- dashboard com visibilidade operacional
+- autoagendamento pelo cliente
+- deploy publico de demonstracao
 
-## User Roles
+## Perfis de Usuario
 
 ### Admin
 
-The admin can manage users, services, clients, appointments, payments, and dashboard data.
+O admin pode gerenciar usuarios, servicos, clientes, agendamentos, pagamentos e dados do dashboard.
 
-### Attendant
+### Atendente
 
-The attendant can work with daily operations: clients, services, appointments, payments, and dashboard review.
+O atendente pode operar o dia a dia: clientes, servicos, agendamentos, pagamentos e revisao do dashboard.
 
-### Client
+### Cliente
 
-The client can view personal appointments and create a new booking through a self-service flow.
+O cliente pode visualizar os proprios agendamentos e criar uma nova reserva por autosservico.
 
-## Architecture
+## Arquitetura
 
 ```text
 Browser
-  -> Next.js frontend
-  -> NestJS backend
+  -> Frontend Next.js
+  -> Backend NestJS
   -> PostgreSQL via Prisma
 ```
 
-Public deployment:
+Deploy publico:
 
 ```text
-Vercel frontend
-  -> Render backend
-  -> Supabase PostgreSQL
+Frontend na Vercel
+  -> Backend no Render
+  -> PostgreSQL no Supabase
 ```
 
-## Technical Decisions
+## Decisoes Tecnicas
 
-### Next.js frontend
+### Frontend em Next.js
 
-Chosen for a modern React application structure, protected routes, deployment simplicity on Vercel, and a clean portfolio presentation.
+Escolhido pela estrutura moderna para React, rotas protegidas, simplicidade de deploy na Vercel e boa apresentacao para portfolio.
 
-### NestJS backend
+### Backend em NestJS
 
-Chosen for modular API organization, dependency injection, guards, decorators, validation pipes, Swagger integration, and maintainable business logic.
+Escolhido pela organizacao modular da API, injecao de dependencias, guards, decorators, pipes de validacao, integracao com Swagger e manutencao clara de regras de negocio.
 
-### Prisma with PostgreSQL
+### Prisma com PostgreSQL
 
-Chosen for typed data access, schema migrations, relational modeling, and simple setup for local and remote PostgreSQL.
+Escolhido por acesso tipado a dados, migrations, modelagem relacional e configuracao simples para PostgreSQL local e remoto.
 
-### JWT authentication
+### Autenticacao JWT
 
-Chosen because the MVP needs role-based access without the complexity of a third-party identity provider.
+Escolhida porque o MVP precisa de acesso por perfil sem a complexidade de um provedor externo de identidade.
 
-### Role-based authorization
+### Autorizacao por perfil
 
-The system separates `admin`, `attendant`, and `client` flows to demonstrate realistic multi-user business software.
+O sistema separa fluxos de `admin`, `attendant` e `client` para demonstrar software de negocio multiusuario com regras realistas.
 
-### Manual payment tracking
+### Pagamento manual
 
-The MVP records payment state manually instead of integrating a payment gateway. This keeps the scope focused while still proving the financial workflow.
+O MVP registra o estado do pagamento manualmente em vez de integrar um gateway. Isso mantem o escopo focado e ainda demonstra o fluxo financeiro vinculado aos agendamentos.
 
 ## Trade-offs
 
-### No multi-tenant model
+### Sem multi-tenant
 
-The project intentionally avoids multi-tenant complexity. The goal is to demonstrate one business operation clearly before adding multi-company architecture.
+O projeto evita complexidade multi-tenant de proposito. O objetivo e demonstrar uma operacao de negocio com clareza antes de adicionar arquitetura multiempresa.
 
-### No payment gateway
+### Sem gateway de pagamento
 
-Payment gateway integration is outside the MVP. Manual payments are enough to show the relationship between appointments and financial state.
+A integracao com gateway de pagamento ficou fora do MVP. Pagamentos manuais sao suficientes para demonstrar a relacao entre agendamentos e estado financeiro.
 
-### No advanced calendar UI
+### Sem calendario visual avancado
 
-The appointment module uses operational lists and filters instead of a full calendar component. This keeps the interface simpler and avoids calendar-specific complexity.
+O modulo de agendamentos usa listas operacionais e filtros em vez de um componente completo de calendario. Isso reduz complexidade visual e tecnica.
 
-### Supabase TLS no-verify for demo
+### Supabase com TLS no-verify na demo
 
-The Render demo uses `sslmode=no-verify` with Supabase to avoid certificate-chain issues in the public portfolio environment. For production, the stricter path would be configuring the CA certificate explicitly.
+A demo no Render usa `sslmode=no-verify` com Supabase para evitar problemas de cadeia de certificados no ambiente publico de portfolio. Em producao, o caminho mais correto seria configurar explicitamente o certificado CA.
 
 ### Render free tier
 
-The backend runs on Render free tier, so cold starts can happen. This is acceptable for a portfolio demo but would need review for production usage.
+O backend roda no plano gratuito do Render, entao cold starts podem acontecer. Isso e aceitavel para uma demo de portfolio, mas precisaria de revisao para uso em producao.
 
-## Business Value
+## Valor de Negocio
 
-The MVP shows how a small business could move from fragmented scheduling to a single operational system:
+O MVP mostra como um pequeno negocio pode sair de um fluxo fragmentado para um sistema operacional centralizado:
 
-- centralized clients
-- clear service catalog
-- appointment visibility
-- customer self-service
-- payment status tracking
-- operational dashboard
+- clientes centralizados
+- catalogo claro de servicos
+- visibilidade de agendamentos
+- autosservico para clientes
+- acompanhamento de status de pagamento
+- dashboard operacional
 
-It can be adapted for clinics, salons, consultancies, studios, tutors, local service teams, and other appointment-based operations.
+Ele pode ser adaptado para clinicas, saloes, consultorias, estudios, professores particulares, equipes de servicos locais e outras operacoes baseadas em agenda.
 
-## Engineering Value
+## Valor Tecnico
 
-This project demonstrates:
+Este projeto demonstra:
 
-- full-stack product delivery
-- modular backend API design
-- database modeling
-- authentication and authorization
-- business rules in the backend
-- frontend protected routes
-- public deployment
-- demo data strategy
-- documentation for reviewers
-- portfolio packaging
+- entrega full-stack de produto
+- design modular de API backend
+- modelagem de banco de dados
+- autenticacao e autorizacao
+- regras de negocio no backend
+- rotas protegidas no frontend
+- deploy publico
+- estrategia de dados demo
+- documentacao para revisores
+- empacotamento de portfolio
 
-## Outcome
+## Resultado
 
-The project is ready as a public portfolio MVP.
+O projeto esta pronto como MVP publico de portfolio.
 
-Reviewers can open the demo, use seeded accounts, inspect the API docs, view screenshots, watch the recorded demo video, and follow the documented demo flow without needing to run the project locally.
+Revisores podem abrir a demo, usar contas populadas, inspecionar a documentacao da API, ver screenshots, assistir ao video demo e seguir o roteiro documentado sem rodar o projeto localmente.
 
-## Future Improvements
+## Melhorias Futuras
 
-- smoke test for the public deployment
-- richer calendar view
-- availability rules
-- notification workflow
-- payment gateway integration
-- multi-tenant architecture
+- smoke test para o deploy publico
+- visao de calendario mais rica
+- regras de disponibilidade
+- fluxo de notificacoes
+- integracao com gateway de pagamento
+- arquitetura multi-tenant

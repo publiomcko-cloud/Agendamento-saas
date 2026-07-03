@@ -1,4 +1,4 @@
-# Demo Script
+# Roteiro de Demo
 
 ## Objetivo
 
@@ -75,7 +75,7 @@ Tempo estimado: 2 a 4 minutos.
 - Swagger em `/api`
 - deploy publico com Vercel, Render e Supabase
 
-## Demo Safety
+## Seguranca da Demo
 
 - todos os dados sao sinteticos
 - as credenciais sao apenas para demonstracao

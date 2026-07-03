@@ -4,7 +4,7 @@
 
 Este documento descreve um caminho simples e reproduzivel para publicar o MVP em ambiente inicial de producao.
 
-Para o estado atual do projeto, este deploy e opcional. O MVP ja e considerado concluido para portfolio por funcionar localmente, possuir documentacao, testes criticos e artefatos de publicacao preparados.
+O deploy publico ja foi realizado para o portfolio. Este documento permanece como referencia operacional para entender ou reproduzir a publicacao inicial.
 
 ## Estrategia recomendada
 

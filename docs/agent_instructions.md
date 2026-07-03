@@ -38,33 +38,33 @@ O agente não deve sacrificar conclusão por excesso de engenharia.
 O agente deve usar os documentos em `docs/` na seguinte hierarquia:
 
 ### Documento principal de escopo
-- `escopo_mvp_projeto_ancora_1.md`
+- `mvp_scope.md`
 
 Este documento define o que entra e o que não entra na primeira versão.
 
 ### Documento principal de ordem de execução
-- `backlog_mvp_projeto_ancora_1.md`
+- `mvp_backlog.md`
 
 Este documento define a sequência recomendada de construção.
 
 ### Documento principal de arquitetura
-- `arquitetura_projeto_ancora_1.md`
+- `architecture.md`
 
 Este documento define a estrutura técnica da solução.
 
 ### Documento principal de modelagem
-- `modelagem_banco_projeto_ancora_1.md`
+- `database_modeling.md`
 
 Este documento define as entidades, relacionamentos e bases do banco.
 
 ### Documento principal de frontend e navegação
-- `fluxos_telas_projeto_ancora_1.md`
+- `screen_flows.md`
 
 Este documento orienta a construção das telas e dos fluxos por perfil.
 
 ### Documento principal do ambiente local
-- `arquitetura_ambiente_local_projeto_ancora_1.md`
-- `setup_local_execucao_projeto_ancora_1.md`
+- `local_environment_architecture.md`
+- `local_setup_execution.md`
 
 Esses documentos orientam como o projeto deve rodar localmente.
 
@@ -72,11 +72,11 @@ Esses documentos orientam como o projeto deve rodar localmente.
 
 Em caso de divergência entre documentos, aplicar a seguinte precedência:
 
-1. `escopo_mvp_projeto_ancora_1.md`
-2. `backlog_mvp_projeto_ancora_1.md`
-3. `arquitetura_projeto_ancora_1.md`
-4. `modelagem_banco_projeto_ancora_1.md`
-5. `fluxos_telas_projeto_ancora_1.md`
+1. `mvp_scope.md`
+2. `mvp_backlog.md`
+3. `architecture.md`
+4. `database_modeling.md`
+5. `screen_flows.md`
 6. demais documentos
 
 Se ainda houver ambiguidade, o agente deve escolher a alternativa mais simples, consistente com o MVP e mais fácil de concluir.

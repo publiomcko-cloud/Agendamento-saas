@@ -13,7 +13,9 @@ Base usada:
 
 ## Leitura rapida do estado atual
 
-O projeto ja esta forte tecnicamente como MVP:
+Status: concluido para portfolio.
+
+O projeto esta forte tecnicamente como MVP:
 
 - backend e frontend integrados
 - autenticacao por perfil
@@ -21,20 +23,17 @@ O projeto ja esta forte tecnicamente como MVP:
 - healthcheck, Swagger, logs estruturados e testes criticos
 - documentacao tecnica principal existente
 
-Os principais gaps hoje sao de apresentacao de portfolio:
+Os gaps de apresentacao de portfolio foram resolvidos:
 
-- README ainda esta funcional, mas nao esta no nivel recruiter-friendly do projeto de referencia
-- nao existe secao clara de `For Recruiters`
-- nao existe secao clara de `For Clients`
-- nao existe secao de screenshots
-- nao existe pasta `docs/screenshots/`
-- nao existe secao de `Known Limitations`
-- nao existe secao de `Roadmap`
-- nao existe secao de `Demo Safety`
-- nao existe secao de `Architecture` resumida no README
-- nao existe secao de `Environment Variables` consolidada no README principal
-- video demo documentado e versionado
-- nao existe secao `Local Demo` explicita com roteiro rapido
+- README esta orientado para portfolio e avaliacao rapida
+- README tem secoes `For Recruiters`, `For Clients` e `What It Demonstrates`
+- README tem screenshots, demo publica, usuarios demo e video demo no YouTube
+- README tem `Architecture`, `API Highlights`, `Local Demo`, `Environment Variables` e `Validation`
+- README tem `Demo Safety`, `Known Limitations` e `Roadmap`
+- pasta `docs/screenshots/` existe com capturas reais da demo
+- documentos publicos de portfolio foram criados em `docs/`
+- deploy publico foi concluido com Vercel, Render e Supabase
+- video demo foi publicado em https://youtu.be/TbuewDJhGYs
 
 ## Meta de resultado
 
@@ -490,6 +489,21 @@ O projeto deve transmitir com clareza que e:
 - um projeto pronto para avaliacao tecnica e comercial
 - um repositorio com documentacao de demonstracao, nao apenas de desenvolvimento
 
-## Proximo passo pratico
+## Status final
+
+Fine tuning concluido.
+
+Todas as fases planejadas foram executadas para o escopo de portfolio:
+
+- README de portfolio
+- screenshots
+- roteiro de demo
+- documentos de suporte
+- deploy publico
+- dados sinteticos
+- video demo publicado
+- links e consistencia revisados
+
+## Proximo passo opcional
 
 Opcional: adicionar um smoke test publico simples para verificar frontend, healthcheck do backend e login demo antes de divulgar o repositorio amplamente.
