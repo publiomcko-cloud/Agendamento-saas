@@ -9,6 +9,7 @@ Demo publica:
 - Frontend: https://agendamento-saas-sigma.vercel.app
 - Backend health: https://agendamento-saas-api.onrender.com/api/health
 - API docs: https://agendamento-saas-api.onrender.com/api
+- Demo video: https://youtu.be/TbuewDJhGYs
 
 ## Credenciais
 

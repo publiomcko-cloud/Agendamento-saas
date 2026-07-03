@@ -32,7 +32,7 @@ export default function AppointmentsPage() {
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
-  const [selectedAppointment, setSelectedAppointment] = useState<Appointment | null>(
+  const [selectedAppointmentId, setSelectedAppointmentId] = useState<string | null>(
     null,
   );
   const [rescheduleTarget, setRescheduleTarget] = useState<Appointment | null>(null);
@@ -72,12 +72,6 @@ export default function AppointmentsPage() {
       setAppointments(appointmentsResponse);
       setClients(clientsResponse.filter((client) => client.active));
       setServices(servicesResponse.filter((service) => service.active));
-      if (selectedAppointment) {
-        const refreshed = appointmentsResponse.find(
-          (appointment) => appointment.id === selectedAppointment.id,
-        );
-        setSelectedAppointment(refreshed ?? null);
-      }
     } catch (requestError) {
       setError(
         requestError instanceof Error
@@ -85,7 +79,7 @@ export default function AppointmentsPage() {
           : "Nao foi possivel carregar agendamentos.",
       );
     }
-  }, [dateFilter, selectedAppointment, statusFilter, token, user?.role]);
+  }, [dateFilter, statusFilter, token, user?.role]);
 
   useEffect(() => {
     const timeoutId = window.setTimeout(() => {
@@ -98,6 +92,10 @@ export default function AppointmentsPage() {
   if (user?.role === "client") {
     return null;
   }
+
+  const selectedAppointment =
+    appointments.find((appointment) => appointment.id === selectedAppointmentId) ??
+    null;
 
   return (
     <div className="space-y-6">
@@ -137,6 +135,7 @@ export default function AppointmentsPage() {
                     });
                     setForm(initialCreateForm);
                     setMessage("Agendamento criado com sucesso.");
+                    setSelectedAppointmentId(null);
                     await loadData();
                   } catch (submitError) {
                     setError(
@@ -369,7 +368,7 @@ export default function AppointmentsPage() {
                 <SecondaryButton
                   type="button"
                   className="px-3 py-2"
-                  onClick={() => setSelectedAppointment(appointment)}
+                  onClick={() => setSelectedAppointmentId(appointment.id)}
                 >
                   Ver detalhe
                 </SecondaryButton>

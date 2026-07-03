@@ -33,7 +33,7 @@ Os principais gaps hoje sao de apresentacao de portfolio:
 - nao existe secao de `Demo Safety`
 - nao existe secao de `Architecture` resumida no README
 - nao existe secao de `Environment Variables` consolidada no README principal
-- nao existe video demo documentado
+- video demo documentado e versionado
 - nao existe secao `Local Demo` explicita com roteiro rapido
 
 ## Meta de resultado
@@ -108,8 +108,11 @@ Descricao curta
 ```
 
 3. Se nao houver deploy publico:
-   - manter `Live Portfolio Demo` com nota clara de `Public deployment pending`
+   - manter `Live Portfolio Demo` com nota clara de deploy pendente
    - adicionar `Local Demo` logo no topo
+
+Status atual:
+o deploy publico ja foi realizado e o README foi atualizado com as URLs finais.
 
 4. Manter o README em ingles ou portugues de forma consistente.
 
@@ -336,14 +339,12 @@ Dar maturidade de produto ao repositorio.
    - nao usar o sistema em producao sem hardening adicional
 
 2. Adicionar secao `Known Limitations`:
-   - sem deploy publico oficial neste momento
    - sem notificacoes automáticas
    - sem multi-tenant
    - sem calendario visual avancado
    - sem gateway de pagamento
 
 3. Adicionar secao `Roadmap`:
-   - deploy publico opcional
    - screenshots e video demo
    - calendario visual
    - disponibilidade/regras de agenda
@@ -471,14 +472,14 @@ Colocar o projeto online com stack publica de portfolio.
 2. Criar `docs/screenshots/` - concluido
 3. Capturar screenshots - concluido
 4. Criar `docs/demo_script.md` - concluido
-5. Criar `docs/portfolio_readiness.md`
-6. Criar `docs/current_state.md`
-7. Criar `docs/case_study.md`
-8. Criar `docs/testing.md`
+5. Criar `docs/portfolio_readiness.md` - concluido
+6. Criar `docs/current_state.md` - concluido
+7. Criar `docs/case_study.md` - concluido
+8. Criar `docs/testing.md` - concluido
 9. Executar Fase 9 de deploy publico - concluido
 10. Revisar README com URLs finais - concluido
-11. Revisar links e consistencia
-12. Opcional: gravar video demo
+11. Revisar links e consistencia - concluido
+12. Opcional: gravar video demo - concluido
 
 ## Resultado esperado apos o fine tuning
 
@@ -491,4 +492,4 @@ O projeto deve transmitir com clareza que e:
 
 ## Proximo passo pratico
 
-Criar `docs/portfolio_readiness.md`, registrando o checklist final do projeto com status real de README, demo publica, screenshots, validacao, seguranca do demo e proximos refinamentos.
+Opcional: adicionar um smoke test publico simples para verificar frontend, healthcheck do backend e login demo antes de divulgar o repositorio amplamente.

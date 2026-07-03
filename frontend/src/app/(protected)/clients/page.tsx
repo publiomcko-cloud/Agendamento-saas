@@ -29,7 +29,7 @@ export default function ClientsPage() {
   const [activeFilter, setActiveFilter] = useState("all");
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [selectedClient, setSelectedClient] = useState<Client | null>(null);
+  const [selectedClientId, setSelectedClientId] = useState<string | null>(null);
   const [editingClientId, setEditingClientId] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
   const [form, setForm] = useState(initialForm);
@@ -53,10 +53,6 @@ export default function ClientsPage() {
         { token },
       );
       setClients(response);
-      if (selectedClient) {
-        const refreshed = response.find((client) => client.id === selectedClient.id);
-        setSelectedClient(refreshed ?? null);
-      }
     } catch (requestError) {
       setError(
         requestError instanceof Error
@@ -64,7 +60,7 @@ export default function ClientsPage() {
           : "Nao foi possivel carregar clientes.",
       );
     }
-  }, [activeFilter, search, selectedClient, token, user?.role]);
+  }, [activeFilter, search, token, user?.role]);
 
   useEffect(() => {
     const timeoutId = window.setTimeout(() => {
@@ -79,6 +75,8 @@ export default function ClientsPage() {
   }
 
   const isEditing = Boolean(editingClientId);
+  const selectedClient =
+    clients.find((client) => client.id === selectedClientId) ?? null;
 
   return (
     <div className="space-y-6">
@@ -130,6 +128,7 @@ export default function ClientsPage() {
 
                   setForm(initialForm);
                   setEditingClientId(null);
+                  setSelectedClientId(null);
                   await loadClients();
                 } catch (submitError) {
                   setError(
@@ -187,6 +186,7 @@ export default function ClientsPage() {
                   type="button"
                   onClick={() => {
                     setEditingClientId(null);
+                    setSelectedClientId(null);
                     setForm(initialForm);
                   }}
                 >
@@ -278,7 +278,7 @@ export default function ClientsPage() {
                 <SecondaryButton
                   type="button"
                   className="px-3 py-2"
-                  onClick={() => setSelectedClient(client)}
+                  onClick={() => setSelectedClientId(client.id)}
                 >
                   Ver detalhe
                 </SecondaryButton>
@@ -287,7 +287,7 @@ export default function ClientsPage() {
                   className="px-3 py-2"
                   onClick={() => {
                     setEditingClientId(client.id);
-                    setSelectedClient(client);
+                    setSelectedClientId(client.id);
                     setForm({
                       name: client.name,
                       email: client.email ?? "",

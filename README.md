@@ -11,6 +11,7 @@ Public portfolio demo:
 - Frontend: https://agendamento-saas-sigma.vercel.app
 - Backend health: https://agendamento-saas-api.onrender.com/api/health
 - API docs: https://agendamento-saas-api.onrender.com/api
+- Demo video: https://youtu.be/TbuewDJhGYs
 
 Local demo mode:
 
@@ -343,6 +344,10 @@ npm run build
 - [Deployment guide](docs/deploy_inicial_projeto_ancora_1.md)
 - [Public demo deployment](docs/public_demo_deployment.md)
 - [Demo script](docs/demo_script.md)
+- [Portfolio readiness](docs/portfolio_readiness.md)
+- [Current state](docs/current_state.md)
+- [Case study](docs/case_study.md)
+- [Testing](docs/testing.md)
 - [Final MVP review](docs/revisao_final_aderencia_mvp.md)
 - [Class diagram](docs/diagrama_classes_mermaid.html)
 
@@ -351,7 +356,7 @@ npm run build
 - Demo users and records are synthetic.
 - Do not use real customer data or secrets in local or future public demo environments.
 - This repository is presented as a portfolio MVP, not as a production-ready hardened SaaS.
-- Public deployment is not active at this time.
+- Public deployment is active and should keep synthetic data only.
 
 ## Known Limitations
 
@@ -362,12 +367,12 @@ npm run build
 
 ## Roadmap
 
-- add screenshots and a short demo video
-- publish optional public demo
+- add a simple public smoke test
 - add richer calendar and availability views
 - expand operational reports
 - add optional notification flows
 - improve mobile showcase and portfolio assets
+- keep the public demo video updated after relevant UI changes
 
 ## License
 
