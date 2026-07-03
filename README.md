@@ -1,126 +1,126 @@
-# Scheduling SaaS for Small Businesses
+# SaaS de Agendamento para Pequenos Negocios
 
-Full-stack scheduling and operations system for small service businesses.
+Sistema full-stack de agendamento e gestao operacional para pequenos negocios de servicos.
 
-This project is a portfolio-ready SaaS-style demo built to show practical product engineering, not only isolated CRUD screens. It includes role-based authentication, client and service management, appointment scheduling, payment tracking, and an operational dashboard. It is intended for recruiters, technical reviewers, and freelance clients evaluating real business software delivery.
+Este projeto e uma demo SaaS-like pronta para portfolio, criada para demonstrar engenharia de produto na pratica, nao apenas telas CRUD isoladas. Ele inclui autenticacao por perfil, gestao de clientes e servicos, agendamentos, acompanhamento de pagamentos e dashboard operacional. O projeto foi pensado para recrutadores, revisores tecnicos e potenciais clientes que querem avaliar a entrega de um software de negocio completo.
 
-## Live Portfolio Demo
+## Demo Publica de Portfolio
 
-Public portfolio demo:
+Demo publica:
 
 - Frontend: https://agendamento-saas-sigma.vercel.app
 - Backend health: https://agendamento-saas-api.onrender.com/api/health
 - API docs: https://agendamento-saas-api.onrender.com/api
-- Demo video: https://youtu.be/TbuewDJhGYs
+- Video demo: https://youtu.be/TbuewDJhGYs
 
-Local demo mode:
+Demo local:
 
-- Local frontend: `http://localhost:3000`
-- Local backend health: `http://localhost:3333/api/health`
-- Local API docs: `http://localhost:3333/api`
+- Frontend local: `http://localhost:3000`
+- Backend health local: `http://localhost:3333/api/health`
+- API docs local: `http://localhost:3333/api`
 
-If port `3000` is already in use, the frontend may start on `http://localhost:3001`.
+Se a porta `3000` ja estiver em uso, o frontend pode iniciar em `http://localhost:3001`.
 
-Public stack:
+Stack publica:
 
 - Frontend: Vercel
 - Backend: Render
-- Database: Supabase PostgreSQL
+- Banco de dados: Supabase PostgreSQL
 
-## Demo Users
+## Usuarios Demo
 
 ```text
 Admin
 admin@example.com
 Admin@123456
 
-Attendant
+Atendente
 attendant@example.com
 Attendant@123456
 
-Client
+Cliente
 client@example.com
 Client@123456
 ```
 
-These accounts are created by the local seed and use synthetic demo data only.
+Essas contas sao criadas pelo seed local e usam apenas dados sinteticos de demonstracao.
 
-## For Recruiters
+## Para Recrutadores
 
-This project demonstrates practical full-stack software engineering in a business-oriented scenario, including:
+Este projeto demonstra engenharia full-stack aplicada a um cenario de negocio, incluindo:
 
-- Next.js frontend development with protected application flows
-- NestJS backend API design
-- PostgreSQL relational modeling with Prisma
-- JWT authentication and role-based authorization
-- scheduling business rules and conflict prevention
-- admin, attendant, and client product flows
-- operational dashboard design
-- validation, testing, and local developer experience
-- documentation and portfolio-oriented project packaging
+- frontend em Next.js com fluxos protegidos
+- design de API backend com NestJS
+- modelagem relacional em PostgreSQL com Prisma
+- autenticacao JWT e autorizacao por perfil
+- regras de agendamento e prevencao de conflitos
+- fluxos de produto para admin, atendente e cliente
+- dashboard operacional
+- validacao, testes e experiencia de desenvolvimento local
+- documentacao e empacotamento orientado a portfolio
 
-It is meant to show the ability to build complete business software, not only UI mockups or generic tutorial CRUD.
+A proposta e mostrar capacidade de construir software de negocio completo, nao apenas mockups de UI ou CRUD generico de tutorial.
 
-## For Clients
+## Para Clientes
 
-This project shows how a real scheduling workflow can be turned into a working web product with separate roles, operational visibility, and customer self-service.
+Este projeto mostra como um fluxo real de agendamento pode virar um produto web funcional com perfis separados, visibilidade operacional e autosservico para clientes.
 
-It can be adapted into solutions such as:
+Ele pode ser adaptado para solucoes como:
 
-- appointment systems for clinics or salons
-- admin panels for service businesses
-- customer portals for bookings and schedule follow-up
-- internal operations dashboards
-- scheduling tools for consultants and local businesses
-- service management platforms with staff and customer views
+- sistemas de agendamento para clinicas ou saloes
+- paineis administrativos para negocios de servicos
+- portais de clientes para reservas e acompanhamento
+- dashboards internos de operacao
+- ferramentas de agenda para consultores e negocios locais
+- plataformas de gestao de servicos com equipe e area do cliente
 
-## What It Demonstrates
+## O Que o Projeto Demonstra
 
-- full-stack application structure with separate frontend and backend
-- role-based access for admin, attendant, and client users
-- appointment creation, cancellation, and rescheduling
-- backend conflict validation for time slots
-- payment registration and status updates
-- operational dashboard with day-level business visibility
-- structured logging and global error handling
-- Swagger API documentation and healthcheck support
-- seeded local demo environment for repeatable reviews
+- estrutura full-stack com frontend e backend separados
+- acesso por perfil para usuarios admin, atendente e cliente
+- criacao, cancelamento e reagendamento de agendamentos
+- validacao de conflito de horario no backend
+- registro e atualizacao de pagamentos
+- dashboard operacional com visibilidade do dia
+- logs estruturados e filtro global de erros
+- documentacao Swagger da API e healthcheck
+- ambiente local com seed para revisoes repetiveis
 
-## Screenshots
+## Capturas de Tela
 
 | Login | Dashboard |
 | --- | --- |
-| ![Login and demo accounts](docs/screenshots/01-login.png) | ![Admin dashboard with operational metrics](docs/screenshots/02-dashboard.png) |
+| ![Login e contas demo](docs/screenshots/01-login.png) | ![Dashboard admin com metricas operacionais](docs/screenshots/02-dashboard.png) |
 
-| Users | Clients |
+| Usuarios | Clientes |
 | --- | --- |
-| ![Administrative user management](docs/screenshots/03-users.png) | ![Client management screen](docs/screenshots/04-clients.png) |
+| ![Gestao administrativa de usuarios](docs/screenshots/03-users.png) | ![Tela de gestao de clientes](docs/screenshots/04-clients.png) |
 
-| Services | Appointments |
+| Servicos | Agendamentos |
 | --- | --- |
-| ![Service catalog management](docs/screenshots/05-services.png) | ![Operational appointment schedule](docs/screenshots/06-appointments.png) |
+| ![Gestao do catalogo de servicos](docs/screenshots/05-services.png) | ![Agenda operacional de atendimentos](docs/screenshots/06-appointments.png) |
 
-| Payments | Client Area |
+| Pagamentos | Area do Cliente |
 | --- | --- |
-| ![Payment tracking screen](docs/screenshots/07-payments.png) | ![Client appointments screen](docs/screenshots/08-my-appointments.png) |
+| ![Tela de acompanhamento de pagamentos](docs/screenshots/07-payments.png) | ![Tela de agendamentos do cliente](docs/screenshots/08-my-appointments.png) |
 
-| New Booking | Mobile Dashboard |
+| Novo Agendamento | Dashboard Mobile |
 | --- | --- |
-| ![Client booking flow](docs/screenshots/09-book-appointment.png) | ![Mobile dashboard view](docs/screenshots/10-mobile-dashboard.png) |
+| ![Fluxo de agendamento pelo cliente](docs/screenshots/09-book-appointment.png) | ![Visao mobile do dashboard](docs/screenshots/10-mobile-dashboard.png) |
 
-## Main Features
+## Funcionalidades Principais
 
-- JWT login with profile-based navigation
-- user management for internal accounts
-- client management with list, detail, update, and deactivation flows
-- service management with activation and deactivation
-- appointment scheduling with reschedule and cancel actions
-- conflict prevention in the backend
-- payment registration and updates
-- administrative dashboard
-- client self-service for booking and reviewing personal appointments
+- login JWT com navegacao baseada em perfil
+- gestao de usuarios internos
+- gestao de clientes com listagem, detalhe, edicao e inativacao
+- gestao de servicos com ativacao e desativacao
+- agendamentos com reagendamento e cancelamento
+- prevencao de conflitos no backend
+- registro e atualizacao de pagamentos
+- dashboard administrativo
+- autosservico do cliente para criar e revisar agendamentos
 
-## Tech Stack
+## Stack Tecnica
 
 ### Frontend
 
@@ -136,36 +136,36 @@ It can be adapted into solutions such as:
 - Prisma ORM
 - PostgreSQL
 
-### Testing
+### Testes
 
 - Jest
 - Supertest
 
-### Deployment Readiness
+### Deploy e Operacao
 
 - Docker
 - Docker Compose
-- production Dockerfiles for frontend and backend
-- Vercel project config for the frontend
+- Dockerfiles de producao para frontend e backend
+- configuracao de projeto Vercel para o frontend
 
-## Architecture
+## Arquitetura
 
 ```text
 Browser
-  -> Next.js frontend
-  -> NestJS backend
+  -> Frontend Next.js
+  -> Backend NestJS
   -> PostgreSQL via Prisma
 ```
 
-The frontend is responsible for authentication state, protected navigation, forms, and API consumption. The backend owns authentication, authorization, business rules, persistence, healthcheck, Swagger docs, and operational logging.
+O frontend e responsavel por estado de autenticacao, navegacao protegida, formularios e consumo da API. O backend concentra autenticacao, autorizacao, regras de negocio, persistencia, healthcheck, Swagger e logs operacionais.
 
-## API Highlights
+## Destaques da API
 
-### Authentication
+### Autenticacao
 
 - `POST /api/auth/login`
 
-### Users
+### Usuarios
 
 - `GET /api/users/me`
 - `GET /api/users`
@@ -174,7 +174,7 @@ The frontend is responsible for authentication state, protected navigation, form
 - `PATCH /api/users/:id/activate`
 - `PATCH /api/users/:id/deactivate`
 
-### Clients
+### Clientes
 
 - `GET /api/clients`
 - `POST /api/clients`
@@ -182,7 +182,7 @@ The frontend is responsible for authentication state, protected navigation, form
 - `PATCH /api/clients/:id`
 - `PATCH /api/clients/:id/deactivate`
 
-### Services
+### Servicos
 
 - `GET /api/services`
 - `POST /api/services`
@@ -191,7 +191,7 @@ The frontend is responsible for authentication state, protected navigation, form
 - `PATCH /api/services/:id/activate`
 - `PATCH /api/services/:id/deactivate`
 
-### Appointments
+### Agendamentos
 
 - `GET /api/appointments`
 - `POST /api/appointments`
@@ -199,7 +199,7 @@ The frontend is responsible for authentication state, protected navigation, form
 - `PATCH /api/appointments/:id/cancel`
 - `PATCH /api/appointments/:id/reschedule`
 
-### Payments
+### Pagamentos
 
 - `GET /api/payments`
 - `GET /api/payments/:id`
@@ -210,34 +210,34 @@ The frontend is responsible for authentication state, protected navigation, form
 
 - `GET /api/dashboard`
 
-### Monitoring
+### Monitoramento
 
 - `GET /api/health`
 
-## Local Demo
+## Demo Local
 
-Recommended review path:
+Roteiro recomendado para revisao:
 
-1. Sign in as `admin@example.com`.
-2. Open the dashboard and review the day-level operational summary.
-3. Visit services and confirm the available catalog.
-4. Visit clients and inspect the operational customer records.
-5. Create or review an appointment.
-6. Register or inspect a payment.
-7. Sign out and log in as `client@example.com`.
-8. Review personal appointments and the self-service booking flow.
+1. Entrar como `admin@example.com`.
+2. Abrir o dashboard e revisar o resumo operacional do dia.
+3. Acessar servicos e confirmar o catalogo disponivel.
+4. Acessar clientes e inspecionar os registros.
+5. Criar ou revisar um agendamento.
+6. Registrar ou inspecionar um pagamento.
+7. Sair e entrar como `client@example.com`.
+8. Revisar agendamentos pessoais e o fluxo de autoagendamento.
 
-## Local Development
+## Desenvolvimento Local
 
-### 1. Start the database
+### 1. Subir o banco
 
-From the project root:
+A partir da raiz do projeto:
 
 ```bash
 docker compose up -d
 ```
 
-### 2. Create local environment files
+### 2. Criar arquivos de ambiente locais
 
 ```bash
 cp .env.example .env
@@ -245,7 +245,7 @@ cp backend/.env.example backend/.env
 cp frontend/.env.example frontend/.env.local
 ```
 
-### 3. Run the backend
+### 3. Rodar o backend
 
 ```bash
 cd backend
@@ -256,7 +256,7 @@ npx prisma db seed
 npm run start:dev
 ```
 
-Open:
+Abrir:
 
 ```text
 API: http://localhost:3333/api
@@ -264,9 +264,9 @@ Swagger: http://localhost:3333/api
 Healthcheck: http://localhost:3333/api/health
 ```
 
-### 4. Run the frontend
+### 4. Rodar o frontend
 
-In another terminal:
+Em outro terminal:
 
 ```bash
 cd frontend
@@ -274,24 +274,24 @@ npm install
 npm run dev
 ```
 
-Open:
+Abrir:
 
 ```text
 Frontend: http://localhost:3000
 ```
 
-## Environment Variables
+## Variaveis de Ambiente
 
-This project uses three local environment files:
+Este projeto usa tres arquivos de ambiente locais:
 
-- root `.env`
+- `.env` na raiz
 - `backend/.env`
 - `frontend/.env.local`
 
-Important values:
+Valores importantes:
 
 ```env
-# root .env
+# .env na raiz
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres
 POSTGRES_DB=agendamento_db
@@ -313,7 +313,7 @@ DATABASE_SSL_REJECT_UNAUTHORIZED=true
 NEXT_PUBLIC_API_URL=http://localhost:3333/api
 ```
 
-## Validation
+## Validacao
 
 Backend:
 
@@ -333,47 +333,47 @@ npm run lint
 npm run build
 ```
 
-## Documentation
+## Documentacao
 
-- [Project overview](docs/project_overview.md)
-- [MVP scope](docs/mvp_scope.md)
-- [Architecture](docs/architecture.md)
-- [Local environment architecture](docs/local_environment_architecture.md)
-- [Database modeling](docs/database_modeling.md)
-- [Screen flows](docs/screen_flows.md)
-- [Deployment guide](docs/initial_deployment.md)
-- [Public demo deployment](docs/public_demo_deployment.md)
-- [Demo script](docs/demo_script.md)
-- [Portfolio readiness](docs/portfolio_readiness.md)
-- [Current state](docs/current_state.md)
-- [Case study](docs/case_study.md)
-- [Testing](docs/testing.md)
-- [Final MVP review](docs/final_mvp_review.md)
-- [Class diagram](docs/class_diagram.html)
+- [Visao geral do projeto](docs/project_overview.md)
+- [Escopo do MVP](docs/mvp_scope.md)
+- [Arquitetura](docs/architecture.md)
+- [Arquitetura do ambiente local](docs/local_environment_architecture.md)
+- [Modelagem de banco](docs/database_modeling.md)
+- [Fluxos de telas](docs/screen_flows.md)
+- [Guia de deploy](docs/initial_deployment.md)
+- [Deploy da demo publica](docs/public_demo_deployment.md)
+- [Roteiro de demo](docs/demo_script.md)
+- [Prontidao de portfolio](docs/portfolio_readiness.md)
+- [Estado atual](docs/current_state.md)
+- [Estudo de caso](docs/case_study.md)
+- [Testes](docs/testing.md)
+- [Revisao final do MVP](docs/final_mvp_review.md)
+- [Diagrama de classes](docs/class_diagram.html)
 
-## Demo Safety
+## Seguranca da Demo
 
-- Demo users and records are synthetic.
-- Do not use real customer data or secrets in local or future public demo environments.
-- This repository is presented as a portfolio MVP, not as a production-ready hardened SaaS.
-- Public deployment is active and should keep synthetic data only.
+- Usuarios e registros demo sao sinteticos.
+- Nao use dados reais de clientes ou segredos em ambientes locais ou publicos de demonstracao.
+- Este repositorio e apresentado como MVP de portfolio, nao como um SaaS de producao com hardening completo.
+- O deploy publico esta ativo e deve continuar usando apenas dados sinteticos.
 
-## Known Limitations
+## Limitacoes Conhecidas
 
-- no automated notifications
-- no advanced calendar view
-- no payment gateway integration
-- no multi-tenant architecture
+- sem notificacoes automaticas
+- sem calendario visual avancado
+- sem integracao com gateway de pagamento
+- sem arquitetura multi-tenant
 
 ## Roadmap
 
-- add a simple public smoke test
-- add richer calendar and availability views
-- expand operational reports
-- add optional notification flows
-- improve mobile showcase and portfolio assets
-- keep the public demo video updated after relevant UI changes
+- adicionar um smoke test publico simples
+- adicionar visoes de calendario e disponibilidade mais ricas
+- expandir relatorios operacionais
+- adicionar fluxos opcionais de notificacao
+- melhorar assets mobile e de portfolio
+- manter o video demo publico atualizado apos mudancas relevantes de UI
 
-## License
+## Licenca
 
-This project is licensed under the MIT License. See [LICENSE](LICENSE).
+Este projeto esta licenciado sob a licenca MIT. Veja [LICENSE](LICENSE).
